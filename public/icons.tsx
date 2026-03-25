@@ -1,4 +1,4 @@
-export const GooglePlay = () => (
+export  const GooglePlay = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="246" height="39" viewBox="0 0 246 39" fill="none">
 <rect width="245.25" height="39" rx="19.5" fill="#1A1D1F"/>
 <path d="M75.4704 9.48497C75.2033 9.79808 75.067 10.2006 75.0894 10.6101V28.3864C75.0618 28.7966 75.1988 29.201 75.4704 29.5115L75.5271 29.5758L85.5692 19.6188V19.3777L75.5271 9.42871L75.4704 9.48497Z" fill="url(#paint0_linear_1699_33230)"/>
@@ -47,7 +47,7 @@ export const GooglePlay = () => (
 </svg>
 )
 
-export const ApplePay = () => (
+export  const ApplePay = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="246" height="39" viewBox="0 0 246 39" fill="none">
 <rect width="245.25" height="39" rx="19.5" fill="#1A1D1F"/>
 <path d="M91.4461 20.1417C91.4562 19.3688 91.6634 18.611 92.0485 17.9387C92.4335 17.2665 92.9839 16.7017 93.6485 16.2969C93.2263 15.6994 92.6694 15.2078 92.0219 14.8609C91.3744 14.5141 90.6542 14.3216 89.9185 14.2988C88.3492 14.1356 86.8278 15.2293 86.028 15.2293C85.2128 15.2293 83.9816 14.315 82.6557 14.3421C81.798 14.3695 80.9622 14.6166 80.2296 15.0593C79.4971 15.502 78.8927 16.1252 78.4755 16.8681C76.6681 19.9687 78.0162 24.5257 79.7476 27.032C80.6138 28.2593 81.6262 29.6302 82.9509 29.5816C84.2472 29.5283 84.7313 28.7626 86.2961 28.7626C87.8463 28.7626 88.3005 29.5816 89.6521 29.5507C91.0431 29.5283 91.9194 28.318 92.7553 27.0791C93.3777 26.2046 93.8566 25.2381 94.1744 24.2154C93.3662 23.8767 92.6766 23.3098 92.1914 22.5854C91.7063 21.861 91.4471 21.0111 91.4461 20.1417Z" fill="white"/>
@@ -75,3 +75,141 @@ export const ApplePay = () => (
 <path d="M167.535 25.6205C167.31 27.084 165.872 28.0884 164.031 28.0884C161.664 28.0884 160.195 26.5171 160.195 23.9961C160.195 21.4672 161.672 19.8271 163.961 19.8271C166.212 19.8271 167.628 21.3594 167.628 23.8039V24.3709H161.881V24.4709C161.855 24.7676 161.892 25.0665 161.991 25.3477C162.09 25.629 162.249 25.8861 162.456 26.1021C162.663 26.3181 162.914 26.488 163.192 26.6004C163.47 26.7129 163.77 26.7654 164.07 26.7545C164.465 26.7911 164.861 26.7005 165.199 26.4962C165.538 26.2919 165.801 25.9848 165.949 25.6205L167.535 25.6205ZM161.889 23.2143H165.957C165.972 22.9475 165.931 22.6805 165.837 22.4301C165.743 22.1797 165.598 21.9513 165.41 21.7591C165.223 21.567 164.998 21.4153 164.748 21.3136C164.499 21.2119 164.231 21.1623 163.961 21.1681C163.689 21.1665 163.42 21.2183 163.168 21.3204C162.916 21.4226 162.688 21.5732 162.495 21.7634C162.302 21.9536 162.15 22.1798 162.046 22.4288C161.942 22.6778 161.888 22.9448 161.889 23.2143V23.2143Z" fill="white"/>
 </svg>
 )
+
+
+export const ILayers = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M2 5l8-3 8 3-8 3-8-3z" />
+    <path d="M2 10l8 3 8-3" />
+    <path d="M2 15l8 3 8-3" />
+  </svg>
+);
+export const IUsers = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="8" cy="7" r="3" />
+    <path d="M2 18c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+    <circle cx="14" cy="7" r="2" opacity=".5" />
+    <path d="M17 18c0-2.2-1.3-4-3-5" opacity=".5" />
+  </svg>
+);
+export const IBook = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 3h10a2 2 0 012 2v12a2 2 0 01-2 2H4V3z" />
+    <path d="M4 17v-2" />
+    <path d="M8 7h4M8 10h4M8 13h2" />
+  </svg>
+);
+export const IBolt = ({ filled = false }: { filled?: boolean }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill={filled ? "#fff" : "none"}
+    stroke={filled ? "none" : "#16a34a"}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M11 2L4 11h6l-1 7 7-9h-6l1-7z" />
+  </svg>
+);
+
+export const ILock = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="4" y="9" width="12" height="9" rx="2" />
+    <path d="M7 9V6a3 3 0 016 0v3" />
+  </svg>
+);
+export const IPhone = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="5" y="2" width="10" height="16" rx="2" />
+    <circle cx="10" cy="16" r=".8" fill={c} />
+  </svg>
+);
+export const IShield = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10 2l6 2.5V10c0 3.5-2.5 6.5-6 8-3.5-1.5-6-4.5-6-8V4.5L10 2z" />
+  </svg>
+);
+export const IFilter = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M3 5h14M6 10h8M9 15h2" />
+  </svg>
+);
+export const IBank = ({ c = "#16a34a" }: { c?: string }) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke={c}
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M3 17h14M3 8h14M10 3l7 5H3l7-5zM6 8v9M10 8v9M14 8v9" />
+  </svg>
+);
