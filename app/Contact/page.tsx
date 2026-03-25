@@ -25,6 +25,7 @@ interface RevealProps {
   dir?: 'up' | 'down' | 'left' | 'right';
   className?: string;
 }
+
 function Reveal({ children, delay = 0, dir = 'up', className = '' }: RevealProps) {
   const [ref, inView] = useInView();
   const translate: Record<string, string> = {
