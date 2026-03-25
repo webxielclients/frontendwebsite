@@ -2,6 +2,38 @@
 
 import { useState, useEffect, useRef, ReactNode, RefObject } from 'react';
 import Image from 'next/image';
+import {ILayers, IBolt} from '@/public/icons';
+
+
+function InfoCard({
+  icon,
+  title,
+  bullets,
+  filled = false,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  bullets: string[];
+  filled?: boolean;
+}) {
+  return (
+    <div className="bg-white border border-gray-200 rounded-xl p-5">
+      <div
+        className={`w-8 h-8 rounded-[8px] mb-3 flex items-center justify-center flex-shrink-0 ${filled ? "bg-[#16a34a]" : "bg-gray-100"}`}
+      >
+        {icon}
+      </div>
+      <p className="text-[13.5px] font-bold text-gray-900 mb-2">{title}</p>
+      <ul className="list-disc pl-4 space-y-1">
+        {bullets.map((b) => (
+          <li key={b} className="text-[12.5px] text-gray-500 leading-snug">
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function useInView(threshold = 0.12): [RefObject<HTMLDivElement>, boolean] {
   const ref = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
@@ -115,7 +147,7 @@ export default function PayToChinaPage() {
           </div>
         </section>
 
-        <section className="max-w-[760px] mx-auto px-6 py-14 md:py-20">
+        {/* <section className="max-w-[760px] mx-auto px-6 py-14 md:py-20">
 
           <Reveal>
             <ArticleParagraph>
@@ -196,8 +228,106 @@ export default function PayToChinaPage() {
             </ArticleParagraph>
           </Reveal>
 
-        </section>
+        </section> */}
 
+ <section className="bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
+          <div className="max-w-[1100px] mx-auto">
+            <Reveal className="mb-3">
+              <p className="text-[12px] font-bold text-[#16a34a] uppercase tracking-[.8px] mb-2">
+                Pay Suppliers in China
+              </p>
+              <h2
+                className="hero-heading font-extrabold text-[#16a34a]"
+                style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
+              >
+                Pay Suppliers in China
+              </h2>
+            </Reveal>
+            <Reveal delay={60} className="mb-10">
+              <p
+                className="text-gray-900 leading-snug max-w-[680px]"
+                style={{
+                  fontSize: "clamp(15px, 1.8vw, 20px)",
+                  fontWeight: 700,
+                }}
+              >
+                <strong>ChangPay simplifies Yuan</strong>{" "}
+                <span className="text-gray-400 font-normal">
+                  payments to Chinese suppliers by handling currency conversion,
+                  routing, and settlement through trusted channels.
+                </span>
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+              <div className="flex flex-col gap-3.5">
+                {(
+                  [
+                    {
+                      icon: <ILayers />,
+                      title: "Use cases",
+                      filled: false,
+                      bullets: [
+                        "Importers paying manufacturers",
+                        "Merchants settling invoices",
+                        "Individuals paying overseas suppliers",
+                      ],
+                    },
+                    {
+                      icon: <IBolt filled />,
+                      title: "Payment flow",
+                      filled: true,
+                      bullets: [
+                        "Pay from NGN or USD balance",
+                        "Funds are converted to Yuan at a displayed FX rate",
+                        "Payment is sent to Alipay, WeChat Pay, or a Chinese bank account",
+                        "Payment status is tracked end to end",
+                      ],
+                    },
+                    {
+                      icon: <ILayers />,
+                      title: "What users see before paying",
+                      filled: false,
+                      bullets: [
+                        "FX rate",
+                        "Processing fee",
+                        "Expected arrival time",
+                      ],
+                    },
+                  ] as {
+                    icon: React.ReactNode;
+                    title: string;
+                    filled: boolean;
+                    bullets: string[];
+                  }[]
+                ).map((card, i) => (
+                  <Reveal key={card.title} delay={i * 80}>
+                    <InfoCard
+                      icon={card.icon}
+                      title={card.title}
+                      bullets={card.bullets}
+                      filled={card.filled}
+                    />
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal dir="right">
+                <div
+                  className="relative w-full h-full rounded-[16px] overflow-hidden bg-[#dcfce7]"
+                  style={{ minHeight: 420 }}
+                >
+                  <Image
+                    src="/paytochinahome.png"
+                    alt="Pay suppliers in China"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

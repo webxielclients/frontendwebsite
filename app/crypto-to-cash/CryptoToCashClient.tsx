@@ -2,6 +2,38 @@
 
 import { useState, useEffect, useRef, ReactNode, RefObject } from 'react';
 import Image from 'next/image';
+import {ILayers, IBolt} from '@/public/icons';
+
+
+function InfoCard({
+  icon,
+  title,
+  bullets,
+  filled = false,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  bullets: string[];
+  filled?: boolean;
+}) {
+  return (
+    <div className="bg-white border border-gray-200 rounded-xl p-5">
+      <div
+        className={`w-8 h-8 rounded-[8px] mb-3 flex items-center justify-center flex-shrink-0 ${filled ? "bg-[#16a34a]" : "bg-gray-100"}`}
+      >
+        {icon}
+      </div>
+      <p className="text-[13.5px] font-bold text-gray-900 mb-2">{title}</p>
+      <ul className="list-disc pl-4 space-y-1">
+        {bullets.map((b) => (
+          <li key={b} className="text-[12.5px] text-gray-500 leading-snug">
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function useInView(threshold = 0.12): [RefObject<HTMLDivElement | null>, boolean] {
   const ref = useRef<HTMLDivElement>(null);
@@ -117,8 +149,7 @@ export default function CryptoToCashPage() {
           </div>
         </section>
 
-        {/* ══ ARTICLE BODY ════════════════════════════════════ */}
-        <section className="max-w-[760px] mx-auto px-6 py-14 md:py-20">
+        {/* <section className="max-w-[760px] mx-auto px-6 py-14 md:py-20">
 
           <Reveal>
             <ArticleParagraph>
@@ -212,6 +243,115 @@ export default function CryptoToCashPage() {
             </ArticleParagraph>
           </Reveal>
 
+        </section> */}
+         <section className="bg-white px-4 md:px-12 py-16 md:py-20">
+          <div className="max-w-[1100px] mx-auto">
+            <Reveal className="mb-1 text-center">
+              <span className="inline-block border border-gray-200 text-gray-500 text-[12px] font-medium px-4 py-1 rounded-full tracking-wide">
+                Core Services
+              </span>
+            </Reveal>
+            <Reveal delay={40} className="mb-3 mt-4">
+              <h2
+                className="hero-heading font-extrabold text-[#16a34a]"
+                style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
+              >
+                Convert Crypto to Cash
+              </h2>
+            </Reveal>
+            <Reveal delay={80} className="mb-10">
+              <p
+                className="text-gray-900 leading-snug max-w-[640px]"
+                style={{
+                  fontSize: "clamp(15px, 1.8vw, 20px)",
+                  fontWeight: 700,
+                }}
+              >
+                <strong>ChangPay enables users to convert</strong>{" "}
+                <span className="text-gray-400 font-normal">
+                  supported cryptocurrencies into local or foreign currency
+                  balances, with fast settlement and clear pricing.
+                </span>
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+              <div className="flex flex-col gap-3.5">
+                {(
+                  [
+                    {
+                      icon: <ILayers />,
+                      title: "Supported assets",
+                      filled: false,
+                      bullets: [
+                        "USDT (TRC20 & ERC20)",
+                        "Bitcoin (BTC)",
+                        "Ethereum (ETH)",
+                        "Solana (SOL)",
+                      ],
+                    },
+                    {
+                      icon: <IBolt filled />,
+                      title: "How the conversion works",
+                      filled: true,
+                      bullets: [
+                        "The platform fetches live market rates",
+                        "A conversion rate is displayed with fees included",
+                        "Rates are locked briefly to reduce volatility risk",
+                        "Blockchain confirmations are monitored in real time",
+                        "Funds are credited once the transaction is confirmed",
+                      ],
+                    },
+                    {
+                      icon: <ILayers />,
+                      title: "Settlement options",
+                      filled: false,
+                      bullets: [
+                        "NGN wallet",
+                        "USD wallet",
+                        "Nigerian bank account",
+                      ],
+                    },
+                  ] as {
+                    icon: React.ReactNode;
+                    title: string;
+                    filled: boolean;
+                    bullets: string[];
+                  }[]
+                ).map((card, i) => (
+                  <Reveal key={card.title} delay={80 + i * 80}>
+                    <InfoCard
+                      icon={card.icon}
+                      title={card.title}
+                      bullets={card.bullets}
+                      filled={card.filled}
+                    />
+                  </Reveal>
+                ))}
+                <Reveal delay={340}>
+                  <p className="text-[12px] text-gray-400 italic pt-1">
+                    This structure ensures price transparency, speed, and
+                    predictable outcomes.
+                  </p>
+                </Reveal>
+              </div>
+
+              <Reveal dir="right">
+                <div
+                  className="relative w-full h-full rounded-[16px] overflow-hidden"
+                  style={{ minHeight: 420 }}
+                >
+                  <Image
+                    src="/Image(2).png"
+                    alt="Convert Crypto to Cash"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </section>
 
       </main>

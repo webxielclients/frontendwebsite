@@ -2,9 +2,21 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { IBook, IUsers, ILayers, IBolt, ILock, IPhone, IShield, IFilter, IBank } from "@/public/icons";
+import {
+  IBook,
+  IUsers,
+  ILayers,
+  IBolt,
+  ILock,
+  IPhone,
+  IShield,
+  IFilter,
+  IBank,
+  GooglePlay,
+  ApplePay,
+} from "@/public/icons";
 
-import {useRouter} from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,8 +75,6 @@ function Reveal({
   );
 }
 
-
-
 function InfoCard({
   icon,
   title,
@@ -94,7 +104,6 @@ function InfoCard({
     </div>
   );
 }
-
 
 export default function ChangPayHomepage() {
   const [heroIn, setHeroIn] = useState(false);
@@ -146,11 +155,11 @@ export default function ChangPayHomepage() {
                       letterSpacing: "-2px",
                     }}
                   >
-                    Turn value into
+                    Receive
                     <br />
-                    money. Pay
+                    Convert
                     <br />
-                    where it matters.
+                    Pay Globally
                   </h1>
                 </div>
                 <div
@@ -171,27 +180,39 @@ export default function ChangPayHomepage() {
                     className="text-[15px] text-gray-500 leading-relaxed mb-2 max-w-[420px] mx-auto md:mx-0"
                     style={anim(200)}
                   >
-                    ChangPay helps individuals and businesses convert digital
-                    value into usable cash, make cross-border payments, and
-                    manage funds across currencies securely and transparently.
+                    ChangPay enables individuals and businesses to receive USD,
+                    EUR, GBP, and digital assets, manage multi-currency
+                    accounts, and convert funds into local currencies securely.
                   </p>
                   <p
                     className="text-[15px] text-gray-500 leading-relaxed mb-8 max-w-[420px] mx-auto md:mx-0"
                     style={anim(240)}
                   >
-                    It is designed for real financial use: predictable pricing,
-                    fast settlement, and clear records.
+                    Send and receive payments globally including China through a
+                    reliable and compliant platform.
                   </p>
                   <div
                     className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
                     style={anim(290)}
                   >
-                    <button className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
+                    {/* <button className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
                       Create an account
-                    </button>
-                    <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">
+                    </button> */}
+                    <div className="relative inline-block">
+                      <GooglePlay />
+                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                        Coming Soon
+                      </span>
+                    </div>
+                    {/* <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">
                       How ChangPay works
-                    </button>
+                    </button> */}
+                    <div className="relative inline-block">
+                      <ApplePay />
+                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                        Coming Soon
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -250,23 +271,24 @@ export default function ChangPayHomepage() {
                     letterSpacing: "-1px",
                   }}
                 >
-                  Platform built around{" "}
+                  Built for{" "}
                   <span className="text-[#4ade80]">
                     real
                     <br />
-                    money
+                    global
                   </span>{" "}
-                  movement
+                  payments
                 </h2>
                 <p className="text-[15px] text-slate-400 leading-relaxed">
-                  ChangPay is not a speculative app. It is built to solve
-                  everyday financial problems:
+                  ChangPay is designed for everyday financial use. Receive and
+                  hold USD, EUR, GBP, NGN, and digital assets, convert funds
+                  seamlessly
                 </p>
               </Reveal>
               <Reveal dir="right" className="w-full md:w-auto md:flex-shrink-0">
-                <div className="bg-white rounded-xl overflow-hidden p-3 w-full md:w-[clamp(260px,34vw,380px)]">
+                <div className=" rounded-xl overflow-hidden p-3 w-full md:w-[clamp(260px,34vw,380px)]">
                   <Image
-                    src="/Image(1).png"
+                    src="/payment.png"
                     alt="Globe"
                     width={760}
                     height={620}
@@ -306,117 +328,7 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 md:px-12 py-16 md:py-20">
-          <div className="max-w-[1100px] mx-auto">
-            <Reveal className="mb-1 text-center">
-              <span className="inline-block border border-gray-200 text-gray-500 text-[12px] font-medium px-4 py-1 rounded-full tracking-wide">
-                Core Services
-              </span>
-            </Reveal>
-            <Reveal delay={40} className="mb-3 mt-4">
-              <h2
-                className="hero-heading font-extrabold text-[#16a34a]"
-                style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
-              >
-                Convert Crypto to Cash
-              </h2>
-            </Reveal>
-            <Reveal delay={80} className="mb-10">
-              <p
-                className="text-gray-900 leading-snug max-w-[640px]"
-                style={{
-                  fontSize: "clamp(15px, 1.8vw, 20px)",
-                  fontWeight: 700,
-                }}
-              >
-                <strong>ChangPay enables users to convert</strong>{" "}
-                <span className="text-gray-400 font-normal">
-                  supported cryptocurrencies into local or foreign currency
-                  balances, with fast settlement and clear pricing.
-                </span>
-              </p>
-            </Reveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-              <div className="flex flex-col gap-3.5">
-                {(
-                  [
-                    {
-                      icon: <ILayers />,
-                      title: "Supported assets",
-                      filled: false,
-                      bullets: [
-                        "USDT (TRC20 & ERC20)",
-                        "Bitcoin (BTC)",
-                        "Ethereum (ETH)",
-                        "Solana (SOL)",
-                      ],
-                    },
-                    {
-                      icon: <IBolt filled />,
-                      title: "How the conversion works",
-                      filled: true,
-                      bullets: [
-                        "The platform fetches live market rates",
-                        "A conversion rate is displayed with fees included",
-                        "Rates are locked briefly to reduce volatility risk",
-                        "Blockchain confirmations are monitored in real time",
-                        "Funds are credited once the transaction is confirmed",
-                      ],
-                    },
-                    {
-                      icon: <ILayers />,
-                      title: "Settlement options",
-                      filled: false,
-                      bullets: [
-                        "NGN wallet",
-                        "USD wallet",
-                        "Nigerian bank account",
-                      ],
-                    },
-                  ] as {
-                    icon: React.ReactNode;
-                    title: string;
-                    filled: boolean;
-                    bullets: string[];
-                  }[]
-                ).map((card, i) => (
-                  <Reveal key={card.title} delay={80 + i * 80}>
-                    <InfoCard
-                      icon={card.icon}
-                      title={card.title}
-                      bullets={card.bullets}
-                      filled={card.filled}
-                    />
-                  </Reveal>
-                ))}
-                <Reveal delay={340}>
-                  <p className="text-[12px] text-gray-400 italic pt-1">
-                    This structure ensures price transparency, speed, and
-                    predictable outcomes.
-                  </p>
-                </Reveal>
-              </div>
-
-              <Reveal dir="right">
-                <div
-                  className="relative w-full h-full rounded-[16px] overflow-hidden"
-                  style={{ minHeight: 420 }}
-                >
-                  <Image
-                    src="/Image(2).png"
-                    alt="Convert Crypto to Cash"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
+        {/* <section className="bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] mx-auto">
             <Reveal className="mb-3">
               <h2
@@ -514,108 +426,352 @@ export default function ChangPayHomepage() {
               </Reveal>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="bg-[#ffffff] px-4 md:px-12 py-16 md:py-20">
+        <section className="mt-10 bg-[#0d2218] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] mx-auto">
-            <Reveal className="mb-3">
-              <p className="text-[12px] font-bold text-[#16a34a] uppercase tracking-[.8px] mb-2">
-                Pay Suppliers in China
-              </p>
+            <Reveal>
+              <span className="inline-block bg-[#16a34a] text-white text-[11px] font-bold tracking-[.6px] uppercase px-3 py-1 rounded-full mb-4">
+                Our Services
+              </span>
               <h2
-                className="hero-heading font-extrabold text-[#16a34a]"
-                style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
-              >
-                Pay Suppliers in China
-              </h2>
-            </Reveal>
-            <Reveal delay={60} className="mb-10">
-              <p
-                className="text-gray-900 leading-snug max-w-[680px]"
+                className="hero-heading font-black text-white leading-[1.08] tracking-tight mb-3"
                 style={{
-                  fontSize: "clamp(15px, 1.8vw, 20px)",
-                  fontWeight: 700,
+                  fontSize: "clamp(28px, 4vw, 44px)",
+                  letterSpacing: "-1px",
                 }}
               >
-                <strong>ChangPay simplifies Yuan</strong>{" "}
-                <span className="text-gray-400 font-normal">
-                  payments to Chinese suppliers by handling currency conversion,
-                  routing, and settlement through trusted channels.
-                </span>
+                Everything you need to
+                <br />
+                move money globally
+              </h2>
+              <p className="text-[15px] text-slate-400 leading-relaxed max-w-[560px] mb-12">
+                We offer secure and seamless services for converting
+                cryptocurrency, paying Chinese merchants, and managing
+                multi-currency wallets — enabling instant global transactions
+                with ease.
               </p>
             </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-              <div className="flex flex-col gap-3.5">
-                {(
-                  [
-                    {
-                      icon: <ILayers />,
-                      title: "Use cases",
-                      filled: false,
-                      bullets: [
-                        "Importers paying manufacturers",
-                        "Merchants settling invoices",
-                        "Individuals paying overseas suppliers",
-                      ],
-                    },
-                    {
-                      icon: <IBolt filled />,
-                      title: "Payment flow",
-                      filled: true,
-                      bullets: [
-                        "Pay from NGN or USD balance",
-                        "Funds are converted to Yuan at a displayed FX rate",
-                        "Payment is sent to Alipay, WeChat Pay, or a Chinese bank account",
-                        "Payment status is tracked end to end",
-                      ],
-                    },
-                    {
-                      icon: <ILayers />,
-                      title: "What users see before paying",
-                      filled: false,
-                      bullets: [
-                        "FX rate",
-                        "Processing fee",
-                        "Expected arrival time",
-                      ],
-                    },
-                  ] as {
-                    icon: React.ReactNode;
-                    title: string;
-                    filled: boolean;
-                    bullets: string[];
-                  }[]
-                ).map((card, i) => (
-                  <Reveal key={card.title} delay={i * 80}>
-                    <InfoCard
-                      icon={card.icon}
-                      title={card.title}
-                      bullets={card.bullets}
-                      filled={card.filled}
-                    />
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal dir="right">
-                <div
-                  className="relative w-full h-full rounded-[16px] overflow-hidden bg-[#dcfce7]"
-                  style={{ minHeight: 420 }}
-                >
-                  <Image
-                    src="/paytochinahome.png"
-                    alt="Pay suppliers in China"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+              <Reveal delay={0}>
+                <div className="bg-white rounded-2xl p-7 relative hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f97316] text-white text-[10px] font-bold tracking-[.8px] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
+                    Most Popular
+                  </span>
+                  <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
+                    <IBolt filled />
+                  </div>
+                  <p className="text-[17px] font-bold text-[#0d2218] mb-2.5">
+                    Crypto to Cash
+                  </p>
+                  <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
+                    Convert crypto like Bitcoin, ETH, SOL and USDT into NGN,
+                    USD, or Yuan in real-time. Fast settlement, transparent
+                    rates, with blockchain confirmations monitored live.
+                  </p>
+                  <a
+                    href="/crypto-to-cash"
+                    className="text-[13px] font-semibold text-[#16a34a] flex items-center gap-1.5 no-underline group"
+                  >
+                    Learn more
+                    <svg
+                      className="group-hover:translate-x-1 transition-transform"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="#16a34a"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </Reveal>
+
+              <Reveal delay={80}>
+                <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
+                  <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
+                    <IUsers filled />
+                  </div>
+                  <p className="text-[17px] font-bold text-[#0d2218] mb-2.5">
+                    Send Money to Chinese Merchants
+                  </p>
+                  <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
+                    Pay merchants in China directly via Alipay, WeChat Pay, or
+                    Chinese bank accounts — faster and more affordably than
+                    traditional banking routes.
+                  </p>
+                  <a
+                    href="/pay-to-china"
+                    className="text-[13px] font-semibold text-[#16a34a] flex items-center gap-1.5 no-underline group"
+                  >
+                    Learn more
+                    <svg
+                      className="group-hover:translate-x-1 transition-transform"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="#16a34a"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </Reveal>
+
+              <Reveal delay={160}>
+                <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
+                  <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
+                    <IBank filled />
+                  </div>
+                  <p className="text-[17px] font-bold text-[#0d2218] mb-2.5">
+                    Wallet Management
+                    <span className="inline-block bg-[#f0fdf4] text-[#16a34a] text-[10px] font-bold tracking-[.5px] px-2 py-0.5 rounded-full ml-2 border border-[#bbf7d0] align-middle">
+                      Coming Soon
+                    </span>
+                  </p>
+                  <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
+                    Operate your NGN, USD, or Yuan wallets, send and receive
+                    money, and easily convert between them. Real-time balances,
+                    internal transfers, and full transaction records.
+                  </p>
+                  <span className="text-[13px] font-semibold text-gray-300 flex items-center gap-1.5 cursor-default">
+                    Available soon
+                  </span>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal delay={200}>
+              <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <p className="text-[14px] text-slate-400 leading-relaxed max-w-[400px]">
+                  Whether you're an individual or a business, ChangPay empowers
+                  you to take full control of your financial transactions —
+                  securely, instantly, and transparently.
+                </p>
+                <button className="bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
+                  Get started today
+                </button>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="bg-[#0d2218] px-4 md:px-12 py-16 mt-10">
+          <div className="max-w-[700px] mx-auto bg-[#132e20] border border-[#4ade80]/10 rounded-[20px] px-8 md:px-14 py-14 text-center">
+            <Reveal>
+              <h2
+                className="hero-heading font-black text-white leading-tight mb-4"
+                style={{ fontSize: "clamp(22px,3.5vw,34px)" }}
+              >
+                Ready to Simplify your Global
+                <br />
+                Payments with ChangPay?
+              </h2>
+              <p className="text-[15px] text-slate-400 leading-relaxed max-w-[480px] mx-auto mb-8">
+                Convert, send, and receive money securely and instantly —
+                whether it's crypto, or payments to international merchants.
+              </p>
+              <div className="relative inline-block">
+                <button className="bg-[#16a34a] hover:bg-[#15803d] text-white text-[15px] font-bold px-8 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                  Download our App Today
+                </button>
+                <span className="absolute -top-2 -right-2 bg-[#0d2218] text-[#4ade80] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none border border-[#4ade80]/30">
+                  Coming Soon
+                </span>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="bg-white px-4 md:px-12 py-16 md:py-20">
+          <div className="max-w-[1100px] mx-auto">
+            <Reveal className="text-center mb-12">
+              <span className="inline-block border border-gray-200 text-gray-500 text-[11px] font-semibold tracking-[.6px] uppercase px-4 py-1 rounded-full mb-4">
+                Our Advantage
+              </span>
+              <h2
+                className="hero-heading font-black text-[#0d2218] mb-3"
+                style={{ fontSize: "clamp(26px,3.5vw,40px)" }}
+              >
+                What Sets Us Apart
+              </h2>
+              <p className="text-[15px] text-gray-500 leading-relaxed max-w-[580px] mx-auto">
+                Whether you're an individual, a small business, or an
+                enterprise, ChangPay empowers you to take full control of your
+                financial transactions.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  icon: <IBolt filled />,
+                  title: "Instant Conversion",
+                  desc: "Quickly convert crypto and other digital assets into local currency with real-time rates and fast settlement.",
+                },
+                {
+                  icon: <IShield filled />,
+                  title: "Security & Transparency",
+                  desc: "Our platform is designed with the highest standards of security, ensuring your transactions are always safe and fully visible.",
+                },
+                {
+                  icon: <IUsers filled />,
+                  title: "Customer-Centric Approach",
+                  desc: "We are committed to providing exceptional customer support to guide you through every step of your digital financial journey.",
+                },
+              ].map((item, i) => (
+                <Reveal key={item.title} delay={i * 80}>
+                  <div className="bg-[#f8fafb] border border-gray-100 rounded-2xl p-7 text-center hover:-translate-y-1 hover:shadow-lg transition-all h-full">
+                    <div className="w-14 h-14 rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mx-auto mb-5">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-[16px] font-bold text-[#0d2218] mb-2.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-[13.5px] text-gray-500 leading-[1.7]">
+                      {item.desc}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
+          <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+            <Reveal dir="left">
+              <div className="bg-[#0d2218] rounded-[20px] p-8">
+                <p className="text-[11px] font-bold text-[#4ade80] tracking-[.6px] uppercase mb-5">
+                  Recent Transactions
+                </p>
+                {[
+                  {
+                    label: "BTC → NGN",
+                    sub: "Crypto conversion · 2m ago",
+                    amount: "+₦420,000",
+                  },
+                  {
+                    label: "Pay to China",
+                    sub: "Alipay · Supplier payment",
+                    amount: "¥3,200",
+                  },
+                  {
+                    label: "USDT → USD",
+                    sub: "Wallet settlement · 1h ago",
+                    amount: "+$850",
+                  },
+                ].map((tx) => (
+                  <div
+                    key={tx.label}
+                    className="flex items-center gap-3 py-3.5 border-b border-white/5 last:border-b-0"
+                  >
+                    <div className="w-9 h-9 rounded-[10px] bg-[#16a34a] flex items-center justify-center flex-shrink-0">
+                      <IBolt filled />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[13px] font-bold text-[#d9f5db]">
+                        {tx.label}
+                      </p>
+                      <p className="text-[12px] text-[#6b9e7a]">{tx.sub}</p>
+                    </div>
+                    <span className="text-[13px] font-bold text-[#4ade80]">
+                      {tx.amount}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex justify-between items-center mt-5 pt-4 border-t border-white/5">
+                  <span className="text-[12px] text-[#6b9e7a]">
+                    Total settled this week
+                  </span>
+                  <span className="text-[15px] font-bold text-[#4ade80]">
+                    $12,480
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Text */}
+            <Reveal dir="right" delay={80}>
+              <span className="inline-block border border-gray-300 text-gray-500 text-[11px] font-semibold tracking-[.6px] uppercase px-4 py-1 rounded-full mb-4">
+                Trusted by Businesses
+              </span>
+              <h2
+                className="hero-heading font-black text-[#0d2218] leading-tight mb-4"
+                style={{ fontSize: "clamp(24px,3vw,38px)" }}
+              >
+                Why Businesses Trust ChangPay as Their Leading Partner
+              </h2>
+              <p className="text-[15px] text-gray-500 leading-relaxed mb-8">
+                Join the businesses already enhancing their financial operations
+                with ChangPay. Built for speed, security, and scale.
+              </p>
+              <div className="flex flex-col gap-5 mb-8">
+                {[
+                  {
+                    title: "Instant Payments",
+                    desc: "Send and receive money globally in real-time, making your financial operations faster and more efficient.",
+                  },
+                  {
+                    title: "Seamless Transactions",
+                    desc: "Easily convert cryptocurrencies and manage multiple wallets (NGN, USD, Yuan) with no hassle.",
+                  },
+                  {
+                    title: "24/7 Exceptional Support",
+                    desc: "Our dedicated support team is always available to guide you through any step of your financial journey.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[14px] font-bold text-[#0d2218] mb-1">
+                        {item.title}
+                      </p>
+                      <p className="text-[13px] text-gray-500 leading-[1.65]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="relative inline-block">
+                <button className="flex items-center gap-2 bg-[#0d2218] hover:bg-[#1b3d2a] text-[#4ade80] text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                  Download for Android
+                </button>
+                <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                  Coming Soon
+                </span>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="bg-[#ffffff] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] mx-auto">
             <Reveal className="mb-3">
               <h2
@@ -711,7 +867,91 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="px-4 md:px-12 pb-20 md:pb-24 mt-10">
+        <section className="bg-white px-4 md:px-12 py-20 md:py-24">
+          <div className="max-w-[1100px] mx-auto">
+            <Reveal className="text-center mb-14">
+              <h2
+                className="hero-heading font-black text-[#16a34a] tracking-tight mb-3"
+                style={{
+                  fontSize: "clamp(24px, 4vw, 48px)",
+                  letterSpacing: "-1px",
+                }}
+              >
+                Built for individuals and businesses
+              </h2>
+              <p className="text-[25px] text-[#0A0A0A] mx-auto">
+                ChangPay supports different usage patterns without changing the
+                core system.
+              </p>
+            </Reveal>
+
+            <Reveal className="mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 items-stretch">
+                <div className="flex flex-col justify-center py-10 px-2">
+                  <p className="text-[16px] font-bold text-gray-900 mb-4">
+                    For individuals
+                  </p>
+                  <ul className="list-disc pl-5 flex flex-col gap-2.5">
+                    {[
+                      "Simple conversions",
+                      "Fast cash access",
+                      "Clear transaction history",
+                    ].map((item) => (
+                      <li key={item} className="text-[15px] text-gray-600">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="relative bg-[#e8f5e9] rounded-[16px] overflow-hidden min-h-[240px] md:min-h-[280px]">
+                  <Image
+                    src="/Home1.png"
+                    alt="Individuals"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 items-stretch">
+                <div className="relative bg-[#e8f5e9] rounded-[16px] overflow-hidden min-h-[240px] md:min-h-[280px] order-last md:order-first">
+                  <Image
+                    src="/Home2.png"
+                    alt="Businesses"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="flex flex-col justify-center py-10 px-2">
+                  <p className="text-[16px] font-bold text-gray-900 mb-4">
+                    For businesses
+                  </p>
+                  <ul className="list-disc pl-5 flex flex-col gap-2.5">
+                    {[
+                      "Supplier payments",
+                      "Repeat transactions",
+                      "Predictable settlement",
+                      "Clear records for accounting",
+                    ].map((item) => (
+                      <li key={item} className="text-[15px] text-gray-600">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section
+          id="how-it-works"
+          className="px-4 md:px-12 pb-20 md:pb-24 mt-10"
+        >
           <div className="max-w-[1100px] mx-auto">
             <div className="flex flex-col md:flex-row rounded-[20px] overflow-hidden">
               <div className="bg-[#0d2218] w-full md:w-[50%] p-8 md:p-14 flex flex-col justify-center">
@@ -799,7 +1039,7 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section className="bg-[#0d2218] px-4 md:px-12 py-20 md:py-24">
+        <section className="bg-[#0d2218] px-4 md:px-12 py-20 md:py-24 mb-10">
           <div className="max-w-[1100px] mx-auto">
             <Reveal className="text-center mb-14">
               <h2
@@ -846,87 +1086,6 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 md:px-12 py-20 md:py-24">
-          <div className="max-w-[1100px] mx-auto">
-            <Reveal className="text-center mb-14">
-              <h2
-                className="hero-heading font-black text-[#16a34a] tracking-tight mb-3"
-                style={{
-                  fontSize: "clamp(24px, 4vw, 48px)",
-                  letterSpacing: "-1px",
-                }}
-              >
-                Built for individuals and businesses
-              </h2>
-              <p className="text-[25px] text-[#0A0A0A] mx-auto">
-                ChangPay supports different usage patterns without changing the
-                core system.
-              </p>
-            </Reveal>
-
-            <Reveal className="mb-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 items-stretch">
-                <div className="flex flex-col justify-center py-10 px-2">
-                  <p className="text-[16px] font-bold text-gray-900 mb-4">
-                    For individuals
-                  </p>
-                  <ul className="list-disc pl-5 flex flex-col gap-2.5">
-                    {[
-                      "Simple conversions",
-                      "Fast cash access",
-                      "Clear transaction history",
-                    ].map((item) => (
-                      <li key={item} className="text-[15px] text-gray-600">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="relative bg-[#e8f5e9] rounded-[16px] overflow-hidden min-h-[240px] md:min-h-[280px]">
-                  <Image
-                    src="/Home1.png"
-                    alt="Individuals"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 items-stretch">
-                <div className="relative bg-[#e8f5e9] rounded-[16px] overflow-hidden min-h-[240px] md:min-h-[280px] order-last md:order-first">
-                  <Image
-                    src="/Home2.png"
-                    alt="Businesses"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="flex flex-col justify-center py-10 px-2">
-                  <p className="text-[16px] font-bold text-gray-900 mb-4">
-                    For businesses
-                  </p>
-                  <ul className="list-disc pl-5 flex flex-col gap-2.5">
-                    {[
-                      "Supplier payments",
-                      "Repeat transactions",
-                      "Predictable settlement",
-                      "Clear records for accounting",
-                    ].map((item) => (
-                      <li key={item} className="text-[15px] text-gray-600">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         <section className="px-4 md:px-12 pb-20 md:pb-24">
           <Reveal>
             <div
@@ -953,9 +1112,12 @@ export default function ChangPayHomepage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
                 <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
-                   Download for Android
+                  Download for Android
                 </button>
-                <button onClick={() =>router.push('/pay-to-china')} className="w-full sm:w-auto bg-[#FFFFFF] text-[#0A0A0A] text-[15px] font-semibold px-6 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px hover:text-[#0A0A0A]">
+                <button
+                  onClick={() => router.push("/pay-to-china")}
+                  className="w-full sm:w-auto bg-[#FFFFFF] text-[#0A0A0A] text-[15px] font-semibold px-6 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px hover:text-[#0A0A0A]"
+                >
                   Learn how ChangPay works
                 </button>
               </div>
