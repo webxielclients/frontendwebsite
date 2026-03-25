@@ -288,7 +288,7 @@ export default function ChangPayHomepage() {
               <Reveal dir="right" className="w-full md:w-auto md:flex-shrink-0">
                 <div className=" rounded-xl overflow-hidden p-3 w-full md:w-[clamp(260px,34vw,380px)]">
                   <Image
-                    src="/payment.png"
+                    src="/changpay_brain.png"
                     alt="Globe"
                     width={760}
                     height={620}
