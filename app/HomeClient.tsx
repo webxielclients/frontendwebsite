@@ -428,7 +428,7 @@ export default function ChangPayHomepage() {
           </div>
         </section> */}
 
-        <section className="mt-10 bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
+        <section className=" bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] text-center mx-auto">
             <Reveal>
               <span className="inline-block bg-[#16a34a] text-white text-[11px] font-bold tracking-[.6px] uppercase px-3 py-1 rounded-full mb-4">
@@ -569,7 +569,7 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section className="bg-[#0d2218] px-4 md:px-12 py-16 mt-10">
+        <section className="bg-[#0d2218] px-4 md:px-12 py-16">
           <div className="max-w-[700px] mx-auto bg-[#132e20] border border-[#4ade80]/10 rounded-[20px] px-8 md:px-14 py-14 text-center">
             <Reveal>
               <h2
