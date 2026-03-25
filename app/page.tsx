@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { IBook, IUsers, ILayers, IBolt, ILock, IPhone, IShield, IFilter, IBank } from "@/public/icons";
+
+import {useRouter} from 'next/navigation';
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -61,158 +64,6 @@ function Reveal({
 }
 
 
-const ILayers = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M2 5l8-3 8 3-8 3-8-3z" />
-    <path d="M2 10l8 3 8-3" />
-    <path d="M2 15l8 3 8-3" />
-  </svg>
-);
-const IUsers = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="8" cy="7" r="3" />
-    <path d="M2 18c0-3.3 2.7-6 6-6s6 2.7 6 6" />
-    <circle cx="14" cy="7" r="2" opacity=".5" />
-    <path d="M17 18c0-2.2-1.3-4-3-5" opacity=".5" />
-  </svg>
-);
-const IBook = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M4 3h10a2 2 0 012 2v12a2 2 0 01-2 2H4V3z" />
-    <path d="M4 17v-2" />
-    <path d="M8 7h4M8 10h4M8 13h2" />
-  </svg>
-);
-const IBolt = ({ filled = false }: { filled?: boolean }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill={filled ? "#fff" : "none"}
-    stroke={filled ? "none" : "#16a34a"}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M11 2L4 11h6l-1 7 7-9h-6l1-7z" />
-  </svg>
-);
-const IGift = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="2" y="7" width="16" height="11" rx="1.5" />
-    <path d="M2 10h16M10 7v11" />
-    <path d="M10 7C10 7 8 4 6 4s-2.5 2-1 3S10 7 10 7z" />
-    <path d="M10 7c0 0 2-3 4-3s2.5 2 1 3-5 0-5 0z" />
-  </svg>
-);
-const ILock = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="4" y="9" width="12" height="9" rx="2" />
-    <path d="M7 9V6a3 3 0 016 0v3" />
-  </svg>
-);
-const IPhone = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="5" y="2" width="10" height="16" rx="2" />
-    <circle cx="10" cy="16" r=".8" fill={c} />
-  </svg>
-);
-const IShield = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M10 2l6 2.5V10c0 3.5-2.5 6.5-6 8-3.5-1.5-6-4.5-6-8V4.5L10 2z" />
-  </svg>
-);
-const IFilter = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 5h14M6 10h8M9 15h2" />
-  </svg>
-);
-const IBank = ({ c = "#16a34a" }: { c?: string }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke={c}
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M3 17h14M3 8h14M10 3l7 5H3l7-5zM6 8v9M10 8v9M14 8v9" />
-  </svg>
-);
 
 function InfoCard({
   icon,
@@ -246,6 +97,8 @@ function InfoCard({
 
 export default function ChangPayHomepage() {
   const [heroIn, setHeroIn] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const t = setTimeout(() => setHeroIn(true), 100);
@@ -1101,7 +954,7 @@ export default function ChangPayHomepage() {
                 <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
                    Download for Android
                 </button>
-                <button className="w-full sm:w-auto bg-[#FFFFFF] text-[#0A0A0A] text-[15px] font-semibold px-6 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px">
+                <button onClick={() =>router.push('/pay-to-china')} className="w-full sm:w-auto bg-[#FFFFFF] text-[#0A0A0A] text-[15px] font-semibold px-6 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px hover:text-[#0A0A0A]">
                   Learn how ChangPay works
                 </button>
               </div>
