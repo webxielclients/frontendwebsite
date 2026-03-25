@@ -428,14 +428,14 @@ export default function ChangPayHomepage() {
           </div>
         </section> */}
 
-        <section className="mt-10 bg-[#0d2218] px-4 md:px-12 py-16 md:py-20">
-          <div className="max-w-[1100px] mx-auto">
+        <section className="mt-10 bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
+          <div className="max-w-[1100px] text-center mx-auto">
             <Reveal>
               <span className="inline-block bg-[#16a34a] text-white text-[11px] font-bold tracking-[.6px] uppercase px-3 py-1 rounded-full mb-4">
                 Our Services
               </span>
               <h2
-                className="hero-heading font-black text-white leading-[1.08] tracking-tight mb-3"
+                className="hero-heading font-black leading-[1.08] tracking-tight mb-3"
                 style={{
                   fontSize: "clamp(28px, 4vw, 44px)",
                   letterSpacing: "-1px",
@@ -445,7 +445,7 @@ export default function ChangPayHomepage() {
                 <br />
                 move money globally
               </h2>
-              <p className="text-[15px] text-slate-400 leading-relaxed max-w-[560px] mb-12">
+              <p className="text-[15px] text-center text-slate-400 leading-relaxed mb-12">
                 We offer secure and seamless services for converting
                 cryptocurrency, paying Chinese merchants, and managing
                 multi-currency wallets — enabling instant global transactions
