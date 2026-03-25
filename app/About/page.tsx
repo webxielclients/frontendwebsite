@@ -25,6 +25,7 @@ interface RevealProps {
   dir?: 'up' | 'down' | 'left' | 'right';
   className?: string;
 }
+
 function Reveal({ children, delay = 0, dir = 'up', className = '' }: RevealProps) {
   const [ref, inView] = useInView();
   const translate: Record<string, string> = {
@@ -63,7 +64,6 @@ export default function AboutPage() {
     transition: `opacity .65s cubic-bezier(.16,1,.3,1) ${delay}ms, transform .65s cubic-bezier(.16,1,.3,1) ${delay}ms`,
   });
 
-  const navLinks = ['Home', 'About us', 'How it works', 'FAQ', 'Contact'];
 
   return (
     <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
@@ -139,29 +139,41 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#1a3d2b] px-6 py-20">
-          <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <Reveal dir="left">
-              <h2 className="text-[32px] md:text-[48px] font-extrabold text-[#009F51] leading-[1.15] mb-6">
-                Why ChangPay<br />Exists
-              </h2>
-              <p className="text-[#D9F5DB] text-[15px] leading-relaxed mb-5">
-                Across many markets, individuals and businesses face the same challenges:
-              </p>
-              <ul className="list-disc list-inside text-[#D9F5DB] text-[14px] space-y-2.5 mb-6">
-                <li>Slow or unreliable payments</li>
-                <li>Limited access to cross-border financial services</li>
-                <li>Unclear pricing and hidden fees</li>
-                <li>Fragmented tools that don&apos;t work well together</li>
-              </ul>
-              <p className="text-[#D9F5DB] text-[13.5px] leading-relaxed">
-                ChangPay was built to address these gaps with a single, structured
-                platform that brings clarity and efficiency to digital payments.
-              </p>
-            </Reveal>
-            <Reveal dir="right" delay={80}>
-              <div className="relative h-80 md:h-[400px] rounded-xl overflow-hidden bg-[#d6f0e2]">
-                <Image src="/Image(6).png" alt="ChangPay app screens" fill className="object-contain" />
+      
+        <section className="px-4 md:px-6 py-10">
+          <div className="max-w-[1100px] mx-auto">
+            <Reveal>
+              <div className="rounded-[20px] overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[380px]">
+
+                <div className="bg-[#1a3d2b] px-8 md:px-12 py-12 md:py-16 flex flex-col justify-center">
+                  <h2 className="text-[36px] md:text-[48px] font-extrabold text-[#009F51] leading-[1.1] mb-6">
+                    Why ChangPay<br />Exists
+                  </h2>
+                  <p className="text-[#D9F5DB] text-[15px] leading-relaxed mb-5">
+                    Across many markets, individuals and businesses face the same challenges:
+                  </p>
+                  <ul className="list-disc list-outside pl-5 text-[#D9F5DB] text-[14px] space-y-2 mb-6">
+                    <li>Slow or unreliable payments</li>
+                    <li>Limited access to cross-border financial services</li>
+                    <li>Unclear pricing and hidden fees</li>
+                    <li>Fragmented tools that don&apos;t work well together</li>
+                  </ul>
+                  <p className="text-[#D9F5DB] text-[13.5px] leading-relaxed">
+                    ChangPay was built to address these gaps with a single, structured
+                    platform that brings clarity and efficiency to digital payments.
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-center min-h-[300px] md:min-h-0">
+                  <Image
+                    src="/Image(6).png"
+                    alt="ChangPay app screens"
+                    width={560}
+                    height={520}
+                    className="w-full h-auto object-cover drop-shadow-xl"
+                  />
+                </div>
+
               </div>
             </Reveal>
           </div>
@@ -243,86 +255,73 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="max-w-[1100px] mx-auto px-6 py-20 bg-[#012D32]">
-          <div className="text-center mb-12">
-            <Reveal>
-              <h2 className="text-2xl md:text-[32px] font-bold text-[#009F51] mb-4">
+        {/* Our Approach — full-width dark bg, 2×2 white cards, no emoji, centered text */}
+        <section className="bg-[#012D32] px-6 py-16 md:py-20">
+          <div className="max-w-[1100px] mx-auto">
+
+            <Reveal className="text-center mb-12">
+              <h2 className="text-[32px] md:text-[40px] font-bold text-[#009F51] mb-4">
                 Our Approach
               </h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl mx-auto">
+              <p className="text-white text-[15px] leading-relaxed">
                 We believe good financial technology should be:
               </p>
             </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
+              {[
+                { title: "Clear",       description: "Users should always understand what's happening" },
+                { title: "Reliable",    description: "Payments should work when they matter most" },
+                { title: "Accessible",  description: "Designed for everyday use, not just experts" },
+                { title: "Responsible", description: "Built with compliance and long-term trust in mind" },
+              ].map((item, index) => (
+                <Reveal key={item.title} delay={index * 80}>
+                  <div className="bg-white border border-gray-100 rounded-2xl px-10 py-10 text-center
+                                  flex flex-col items-center justify-center gap-2 min-h-[120px]
+                                  hover:shadow-md transition-shadow">
+                    <h3 className="text-[15px] font-bold text-gray-900">{item.title}</h3>
+                    <p className="text-[13.5px] text-gray-500 leading-relaxed max-w-[260px]">{item.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={360}>
+              <p className="text-center text-[14px] text-white">
+                This philosophy shapes everything we build.
+              </p>
+            </Reveal>
+
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              {
-                title: "Clear",
-                description: "Users should always understand what's happening",
-                icon: "🔍"
-              },
-              {
-                title: "Reliable",
-                description: "Payments should work when they matter most",
-                icon: "⚡"
-              },
-              {
-                title: "Accessible",
-                description: "Designed for everyday use, not just experts",
-                icon: "🌍"
-              },
-              {
-                title: "Responsible",
-                description: "Built with compliance and long-term trust in mind",
-                icon: "🛡️"
-              }
-            ].map((item, index) => (
-              <Reveal key={item.title} delay={index * 80}>
-                <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                  <div className="text-3xl mb-3">{item.icon}</div>
-                  <h3 className="text-[17px] font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-[13.5px] text-gray-500 leading-relaxed">{item.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          
-          <Reveal delay={320}>
-            <p className="text-center text-[14px] text-gray-500 italic">
-              This philosophy shapes everything we build.
-            </p>
-          </Reveal>
         </section>
 
-        <section className="max-w-[1100px] mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <Reveal dir="right" delay={60}>
-              <h2 className="text-2xl md:text-[32px] font-bold text-[#009F51] mb-4 leading-tight">
+        {/* Looking Ahead — text left, one paragraph only, rounded photo right */}
+        <section className="max-w-[1100px] mx-auto px-6 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+            <Reveal dir="left">
+              <h2 className="text-[28px] md:text-[32px] font-bold text-[#009F51] mb-5 leading-tight">
                 Looking Ahead
               </h2>
-              <p className="text-[15px] text-gray-600 leading-relaxed mb-4">
+              <p className="text-[15px] text-gray-600 leading-relaxed">
                 ChangPay is continuously improving—expanding capabilities,
                 strengthening infrastructure, and refining the user experience—while
                 staying grounded in our mission to make digital payments simpler and
                 more inclusive.
               </p>
-              <p className="text-[13.5px] text-gray-500 leading-relaxed">
-                We're committed to building a platform that grows with our users'
-                needs, adapting to new challenges while maintaining the reliability
-                and clarity that define our approach.
-              </p>
             </Reveal>
-             <Reveal dir="left">
-              <div className="relative h-40 md:h-80 rounded-xl overflow-hidden">
-                <Image 
-                  src="/abouten.png" 
-                  alt="ChangPay future vision" 
-                  fill 
+
+            <Reveal dir="right" delay={80}>
+              <div className="relative h-56 md:h-72 rounded-2xl overflow-hidden">
+                <Image
+                  src="/abouten.png"
+                  alt="ChangPay future vision"
+                  fill
                   className="object-cover"
                 />
               </div>
             </Reveal>
+
           </div>
         </section>
 
