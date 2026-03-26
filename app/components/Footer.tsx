@@ -57,6 +57,7 @@ export default function Footer() {
 
           <div>
             <p className="text-[11px] font-bold text-white/35 tracking-[.6px] uppercase mb-4">Contact Us</p>
+             <p className="text-[11px] font-bold text-white/45 tracking-[.6px] max-w-[300px] w-full uppercase mb-4">ChangPay provides fast, reliable payment infrastructure designed for seamless transactions and high availability</p>
             <div className="flex flex-col gap-3">
               {[
                 {
@@ -84,10 +85,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center — Nav columns */}
           <div className="flex gap-12">
             {[
-              { heading: "Features", links: [{ label: "Crypto to Cash", href: "/crypto-to-cash" }, { label: "Pay to China", href: "/pay-to-china" }] },
+              { heading: "Features", links: [{ label: "Crypto to Cash", href: "/crypto-to-cash" }, { label: "Pay to China", href: "/pay-to-china" }, {label: "Multi-currency exchange", href: "/multi-currency"}] },
               { heading: "About", links: [{ label: "Company", href: "/About" }, { label: "FAQ", href: "/faq" }] },
             ].map(({ heading, links }) => (
               <div key={heading} className="flex flex-col gap-2.5">
@@ -117,7 +117,6 @@ export default function Footer() {
         </div>
 
         <div className="pt-6">
-          {/* Terms + Privacy row */}
           <div className="flex items-center gap-4 mb-3">
             <Link href="/terms" className="text-[12px] text-white/40 hover:text-[#4ade80] transition-colors no-underline">
               Terms and Conditions
@@ -126,9 +125,9 @@ export default function Footer() {
             <Link href="/policy" className="text-[12px] text-white/40 hover:text-[#4ade80] transition-colors no-underline">
               Privacy Policy
             </Link>
+            
           </div>
 
-          {/* Copyright + Socials row */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <span className="text-[12px] text-white/30">© 2026 ChangPay. All rights reserved.</span>
             <div className="flex gap-2">
