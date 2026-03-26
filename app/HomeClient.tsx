@@ -155,11 +155,11 @@ export default function ChangPayHomepage() {
                       letterSpacing: "-2px",
                     }}
                   >
-                    Receive
+                    Receive.
                     <br />
-                    Convert
+                    Convert.
                     <br />
-                    Pay Globally
+                    Pay Globally.
                   </h1>
                 </div>
                 <div
@@ -327,106 +327,6 @@ export default function ChangPayHomepage() {
             </Reveal>
           </div>
         </section>
-
-        {/* <section className="bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
-          <div className="max-w-[1100px] mx-auto">
-            <Reveal className="mb-3">
-              <h2
-                className="hero-heading font-extrabold text-[#16a34a]"
-                style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
-              >
-                Sell Gift Cards for Cash
-              </h2>
-            </Reveal>
-            <Reveal delay={60} className="mb-10">
-              <p
-                className="text-gray-900 leading-snug max-w-[640px]"
-                style={{
-                  fontSize: "clamp(15px, 1.8vw, 20px)",
-                  fontWeight: 700,
-                }}
-              >
-                <strong>ChangPay</strong>{" "}
-                <span className="text-gray-400 font-normal">
-                  provides a structured way to convert gift cards into cash
-                  using automated verification and fraud controls.
-                </span>
-              </p>
-            </Reveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-              <div className="flex flex-col gap-3.5">
-                {(
-                  [
-                    {
-                      icon: <ILayers />,
-                      title: "Supported cards",
-                      filled: false,
-                      bullets: [
-                        "Amazon, Apple, Steam, Sephora, Visa Prepaid,",
-                        "and others.",
-                      ],
-                    },
-                    {
-                      icon: <IBolt filled />,
-                      title: "How it works",
-                      filled: true,
-                      bullets: [
-                        "Users upload a card code or image",
-                        "Cards are checked for validity and duplication",
-                        "Approved cards are converted at visible rates",
-                        "Cash is credited to the selected wallet or bank",
-                      ],
-                    },
-                    {
-                      icon: <IUsers />,
-                      title: "Who it's for",
-                      filled: false,
-                      bullets: [
-                        "Individuals with unused gift cards",
-                        "Merchants handling gift cards as payment",
-                        "Operators processing cards at scale",
-                      ],
-                    },
-                  ] as {
-                    icon: React.ReactNode;
-                    title: string;
-                    filled: boolean;
-                    bullets: string[];
-                  }[]
-                ).map((card, i) => (
-                  <Reveal key={card.title} delay={i * 80}>
-                    <InfoCard
-                      icon={card.icon}
-                      title={card.title}
-                      bullets={card.bullets}
-                      filled={card.filled}
-                    />
-                  </Reveal>
-                ))}
-                <Reveal delay={300}>
-                  <p className="text-[12px] text-gray-400 italic pt-1">
-                    This reduces uncertainty and removes informal resale risks.
-                  </p>
-                </Reveal>
-              </div>
-              <Reveal dir="right">
-                <div
-                  className="relative w-full h-full rounded-[16px] overflow-hidden bg-[#dcfce7]"
-                  style={{ minHeight: 420 }}
-                >
-                  <Image
-                    src="/giftcrdhome.png"
-                    alt="Sell Gift Cards for Cash"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section> */}
 
         <section className=" bg-[#f0fdf4] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] text-center mx-auto">

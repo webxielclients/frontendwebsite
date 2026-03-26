@@ -47,7 +47,6 @@ function Reveal({ children, delay = 0, dir = 'up', className = '' }: RevealProps
   );
 }
 
-/* ─── Typography helpers ─────────────────────────────────────── */
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <h2 className="text-[16px] font-bold text-gray-900 mt-8 mb-3">
@@ -72,9 +71,6 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PAGE
-═══════════════════════════════════════════════════════════════ */
 export default function TermsAndConditionsPage() {
   const [heroIn, setHeroIn] = useState(false);
 
@@ -87,7 +83,6 @@ export default function TermsAndConditionsPage() {
     <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
       <main>
 
-        {/* ── Hero image ── */}
         <div
           className="relative w-full overflow-hidden"
           style={{
@@ -106,7 +101,6 @@ export default function TermsAndConditionsPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* ── Content ── */}
         <section className="max-w-[720px] mx-auto px-6 py-12 md:py-16">
 
           <Reveal>
@@ -118,7 +112,6 @@ export default function TermsAndConditionsPage() {
             </p>
           </Reveal>
 
-          {/* 1. Introduction */}
           <Reveal delay={60}>
             <SectionHeading number="1" title="Introduction" />
             <P>
@@ -128,7 +121,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 2. User Responsibilities */}
           <Reveal delay={60}>
             <SectionHeading number="2" title="User Responsibilities" />
             <BulletList items={[
@@ -139,7 +131,6 @@ export default function TermsAndConditionsPage() {
             ]} />
           </Reveal>
 
-          {/* 3. Services */}
           <Reveal delay={60}>
             <SectionHeading number="3" title="Services" />
             <P>
@@ -149,7 +140,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 4. Payment Processing */}
           <Reveal delay={60}>
             <SectionHeading number="4" title="Payment Processing" />
             <P>
@@ -159,7 +149,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 5. Security */}
           <Reveal delay={60}>
             <SectionHeading number="5" title="Security" />
             <P>
@@ -169,7 +158,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 6. Limitation of Liability */}
           <Reveal delay={60}>
             <SectionHeading number="6" title="Limitation of Liability" />
             <P>
@@ -179,7 +167,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 7. Changes to the Terms */}
           <Reveal delay={60}>
             <SectionHeading number="7" title="Changes to the Terms" />
             <P>
@@ -188,7 +175,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 8. Governing Law */}
           <Reveal delay={60}>
             <SectionHeading number="8" title="Governing Law" />
             <P>
@@ -198,7 +184,6 @@ export default function TermsAndConditionsPage() {
             </P>
           </Reveal>
 
-          {/* 9. Contact Us */}
           <Reveal delay={60}>
             <SectionHeading number="9" title="Contact Us" />
             <P>

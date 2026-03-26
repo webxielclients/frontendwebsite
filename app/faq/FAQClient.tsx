@@ -152,7 +152,6 @@ export default function FAQPage() {
   const [scrolled, setScrolled] = useState(false);
   const [heroIn, setHeroIn] = useState(false);
 
-  /* first item open by default — matches the Figma screenshot */
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -173,7 +172,6 @@ export default function FAQPage() {
 
       <main className="w-full">
 
-        {/* ══ HERO IMAGE — full width, same pattern as T&C / Privacy pages ══ */}
         <div
           className="relative w-full overflow-hidden"
           style={{
@@ -192,12 +190,10 @@ export default function FAQPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* ══ CONTENT ══ */}
         <div
           className="mx-auto px-6 py-14 md:py-20"
           style={{ maxWidth: '800px' }}
         >
-          {/* ── Page heading ── */}
           <div
             style={{
               opacity: heroIn ? 1 : 0,
@@ -210,7 +206,6 @@ export default function FAQPage() {
             </h1>
           </div>
 
-          {/* ── Accordion ── */}
           <div className="border-t border-gray-200">
             {FAQ_ITEMS.map((item, i) => (
               <AccordionItem

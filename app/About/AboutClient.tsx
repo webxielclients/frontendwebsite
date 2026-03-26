@@ -255,7 +255,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Approach — full-width dark bg, 2×2 white cards, no emoji, centered text */}
         <section className="bg-[#012D32] px-6 py-16 md:py-20">
           <div className="max-w-[1100px] mx-auto">
 
@@ -295,7 +294,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Looking Ahead — text left, one paragraph only, rounded photo right */}
         <section className="max-w-[1100px] mx-auto px-6 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
 

@@ -81,9 +81,7 @@ function DefinitionList({ items }: { items: { term: string; def: string }[] }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PAGE
-═══════════════════════════════════════════════════════════════ */
+
 export default function PrivacyPolicyPage() {
   const [heroIn, setHeroIn] = useState(false);
 
@@ -96,7 +94,6 @@ export default function PrivacyPolicyPage() {
     <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
       <main>
 
-        {/* ── Hero image ── */}
         <div
           className="relative w-full overflow-hidden"
           style={{
@@ -115,7 +112,6 @@ export default function PrivacyPolicyPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* ── Content ── */}
         <section className="max-w-[720px] mx-auto px-6 py-12 md:py-16">
 
           <Reveal>
@@ -127,7 +123,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </Reveal>
 
-          {/* 1. Introduction */}
           <Reveal delay={60}>
             <SectionHeading number="1" title="Introduction" />
             <P>
@@ -142,7 +137,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 2. Interpretation and Definitions */}
           <Reveal delay={60}>
             <SectionHeading number="2" title="Interpretation and Definitions" />
 
@@ -170,7 +164,6 @@ export default function PrivacyPolicyPage() {
             ]} />
           </Reveal>
 
-          {/* 3. Collecting and Using Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="3" title="Collecting and Using Your Personal Data" />
 
@@ -196,7 +189,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 4. Use of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="4" title="Use of Your Personal Data" />
             <P>
@@ -208,7 +200,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 5. Sharing of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="5" title="Sharing of Your Personal Data" />
             <P>
@@ -220,7 +211,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 6. Retention of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="6" title="Retention of Your Personal Data" />
             <P>
@@ -231,7 +221,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 7. Transfer of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="7" title="Transfer of Your Personal Data" />
             <P>
@@ -242,7 +231,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 8. Delete Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="8" title="Delete Your Personal Data" />
             <P>
@@ -253,7 +241,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 9. Disclosure of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="9" title="Disclosure of Your Personal Data" />
             <P>
@@ -264,7 +251,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 10. Security of Your Personal Data */}
           <Reveal delay={60}>
             <SectionHeading number="10" title="Security of Your Personal Data" />
             <P>
@@ -274,7 +260,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 11. Children's Privacy */}
           <Reveal delay={60}>
             <SectionHeading number="11" title="Children's Privacy" />
             <P>
@@ -284,7 +269,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 12. Links to Other Websites */}
           <Reveal delay={60}>
             <SectionHeading number="12" title="Links to Other Websites" />
             <P>
@@ -294,7 +278,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 13. Changes to This Privacy Policy */}
           <Reveal delay={60}>
             <SectionHeading number="13" title="Changes to This Privacy Policy" />
             <P>
@@ -304,7 +287,6 @@ export default function PrivacyPolicyPage() {
             </P>
           </Reveal>
 
-          {/* 14. Contact Us */}
           <Reveal delay={60}>
             <SectionHeading number="14" title="Contact Us" />
             <P>
