@@ -114,9 +114,9 @@ export default function ContactPage() {
             </h1>
             <p className="text-center text-[15px] text-gray-600 mb-12">
               You can reach us anytime via{' '}
-              <a href="mailto:hi@changpay.com"
+              <a href="mailto:support@usechangpay.com"
                 className="text-[#16a34a] font-medium hover:underline no-underline transition-all">
-                hi@changpay.com
+                support@usechangpay.com
               </a>
             </p>
           </Reveal>
