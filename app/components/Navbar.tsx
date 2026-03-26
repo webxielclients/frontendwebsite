@@ -7,10 +7,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About us", href: "/About" },
+  { label: "About us", href: "/about" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact Us", href: "/Contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -51,14 +51,16 @@ export default function Navbar() {
       setMenuOpen(false);
       if (pathname === "/") {
         setTimeout(() => {
-document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
+          document
+            .getElementById("how-it-works")
+            ?.scrollIntoView({ behavior: "smooth" });
         }, 150);
       } else {
-        setTimeout(() =>  router.push("/#how-it-works"), 150);
-      } 
-    } else {
-        setMenuOpen(false);
+        setTimeout(() => router.push("/#how-it-works"), 150);
       }
+    } else {
+      setMenuOpen(false);
+    }
   };
 
   return (
@@ -109,7 +111,7 @@ document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
 
           <div className="flex items-center gap-3">
             <Link
-              href="/Contact"
+              href="/contact"
               className="hidden md:inline-flex w-[246px] items-center justify-center bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-green-500/20 no-underline"
             >
               Get started
@@ -187,7 +189,7 @@ document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
           })}
 
           <Link
-            href="/Contact"
+            href="/contact"
             onClick={() => setMenuOpen(false)}
             className="nav-font mt-8 bg-[#16a34a] text-center align-center w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full no-underline transition-all duration-200"
             style={{

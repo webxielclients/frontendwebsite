@@ -383,7 +383,7 @@ export default function AboutPage() {
                 you&apos;ll grow tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-               <button onClick={() => router.push('/Contact')} className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
+               <button onClick={() => router.push('/contact')} className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
                       Join ChangPay
                     </button>
                 <button onClick={() => router.push('/#how-it-works')} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">

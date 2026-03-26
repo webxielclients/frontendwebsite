@@ -88,7 +88,7 @@ export default function Footer() {
           <div className="flex gap-12">
             {[
               { heading: "Features", links: [{ label: "Crypto to Cash", href: "/crypto-to-cash" }, { label: "Pay to China", href: "/pay-to-china" }, {label: "Multi-currency exchange", href: "/multi-currency"}] },
-              { heading: "About", links: [{ label: "Company", href: "/About" }, { label: "FAQ", href: "/faq" }] },
+              { heading: "About", links: [{ label: "Company", href: "/about" }, { label: "FAQ", href: "/faq" }] },
             ].map(({ heading, links }) => (
               <div key={heading} className="flex flex-col gap-2.5">
                 <p className="text-[11px] font-bold text-white/35 tracking-[.6px] uppercase mb-1">{heading}</p>
