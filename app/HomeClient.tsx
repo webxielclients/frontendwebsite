@@ -149,7 +149,7 @@ export default function ChangPayHomepage() {
               <div className="flex-1 min-w-0 w-full">
                 <div className="text-center md:text-left" style={anim(60)}>
                   <h1
-                    className="hero-heading font-black leading-[1.05] tracking-tight text-[#16a34a] mb-5"
+                    className="hero-heading  font-black leading-[1.05] tracking-tight text-[#16a34a] mb-5"
                     style={{
                       fontSize: "clamp(38px, 6vw, 72px)",
                       letterSpacing: "-2px",
@@ -192,24 +192,18 @@ export default function ChangPayHomepage() {
                     reliable and compliant platform.
                   </p>
                   <div
-                    className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
+                    className="flex flex-col items-start gap-4 justify-center md:justify-start"
                     style={anim(290)}
                   >
-                    {/* <button className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
-                      Create an account
-                    </button> */}
-                    <div className="relative inline-block">
+                    <div className="relative self-start">
                       <GooglePlay />
-                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
                         Coming Soon
                       </span>
                     </div>
-                    {/* <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">
-                      How ChangPay works
-                    </button> */}
-                    <div className="relative inline-block">
+                    <div className="relative self-start">
                       <ApplePay />
-                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
                         Coming Soon
                       </span>
                     </div>
@@ -263,7 +257,7 @@ export default function ChangPayHomepage() {
 
           <div className="max-w-[1100px] mx-auto px-4 md:px-12">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 mb-12">
-              <Reveal style={{ flex: "0 1 380px" }}>
+              <Reveal className="md:flex-[0_1_380px]">
                 <h2
                   className="hero-heading font-extrabold text-white leading-[1.08] tracking-tight mb-4"
                   style={{
@@ -292,7 +286,7 @@ export default function ChangPayHomepage() {
                     alt="Globe"
                     width={760}
                     height={620}
-                    className="w-full h-auto block"
+                    className="w-full h-auto block rounded-xl"
                   />
                 </div>
               </Reveal>
@@ -443,9 +437,9 @@ export default function ChangPayHomepage() {
                     </span>
                   </p>
                   <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
-                    Operate your NGN, USD, EURO, GBP, or YUAN wallets, send and receive
-                    money, and easily convert between them. Real-time balances,
-                    internal transfers, and full transaction records.
+                    Operate your NGN, USD, EURO, GBP, or YUAN wallets, send and
+                    receive money, and easily convert between them. Real-time
+                    balances, internal transfers, and full transaction records.
                   </p>
                   <span className="text-[13px] font-semibold text-gray-300 flex items-center gap-1.5 cursor-default">
                     Available soon
@@ -461,7 +455,7 @@ export default function ChangPayHomepage() {
                   you to take full control of your financial transactions;
                   securely, instantly, and transparently.
                 </p>
-                <button className="bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
+                <button className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
                   Get started today
                 </button>
               </div>
@@ -481,11 +475,11 @@ export default function ChangPayHomepage() {
                 Payments with ChangPay?
               </h2>
               <p className="text-[15px] text-slate-400 leading-relaxed max-w-[480px] mx-auto mb-8">
-                Convert, send, and receive money securely and instantly
-                whether it's crypto, or payments to international merchants.
+                Convert, send, and receive money securely and instantly whether
+                it's crypto, or payments to international merchants.
               </p>
               <div className="relative inline-block">
-                <button className="bg-[#16a34a] hover:bg-[#15803d] text-white text-[15px] font-bold px-8 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                <button className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
                   Download our App Today
                 </button>
                 <span className="absolute -top-2 -right-2 bg-[#0d2218] text-[#4ade80] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none border border-[#4ade80]/30">
@@ -660,7 +654,7 @@ export default function ChangPayHomepage() {
                 ))}
               </div>
               <div className="relative inline-block">
-                <button className="flex items-center gap-2 bg-[#0d2218] hover:bg-[#1b3d2a] text-[#4ade80] text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                <button className="flex items-center justify-center w-[246px] gap-2 bg-[#0d2218] hover:bg-[#1b3d2a] text-[#4ade80] text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
                   Download for Android
                 </button>
                 <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
@@ -1011,12 +1005,12 @@ export default function ChangPayHomepage() {
                 real use not speculation.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
-                <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
+                <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] w-[246px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
                   Download for Android
                 </button>
                 <button
                   onClick={() => router.push("/pay-to-china")}
-                  className="w-full sm:w-auto bg-[#FFFFFF] text-[#0A0A0A] text-[15px] font-semibold px-6 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px hover:text-[#0A0A0A]"
+                  className="w-full sm:w-auto bg-[#FFFFFF] w-[246px] text-[#0A0A0A] text-[15px] font-semibold px-7 py-3.5 rounded-full border border-white/40 cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-px hover:text-[#0A0A0A]"
                 >
                   Learn how ChangPay works
                 </button>

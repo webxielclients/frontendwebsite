@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, ReactNode, CSSProperties, RefObject } from 'react';
 import Image from 'next/image';
 import {CircleCheckIcon} from '@/public/icons';
+import {useRouter} from 'next/navigation';
 
 function useInView(threshold = 0.12): [RefObject<HTMLDivElement>, boolean] {
   const ref = useRef<HTMLDivElement>(null as any);
@@ -51,6 +52,8 @@ export default function AboutPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [heroIn, setHeroIn] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -112,7 +115,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="max-w-[1100px] mx-auto px-6 pb-20">
+        <section className="max-w-[1100px] mx-auto px-6 pb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <Reveal dir="left" delay={60}>
               <div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gray-900 order-last md:order-first">
@@ -241,7 +244,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-[17px] font-bold text-gray-900">Digital value conversion</h3>
                 <p className="text-[24px] text-[#737373] leading-relaxed">
-                  Helping users turn crypto and gift cards into usable cash.
+                  Helping users turn crypto into usable cash.
                 </p>
               </div>
             </Reveal>
@@ -380,10 +383,10 @@ export default function AboutPage() {
                 you&apos;ll grow tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-               <button className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
-                      Create an account
+               <button onClick={() => router.push('/Contact')} className="w-full sm:w-auto bg-[#0d2218] hover:bg-[#1b3d2a] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
+                      Join ChangPay
                     </button>
-                <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">
+                <button onClick={() => router.push('/#how-it-works')} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-900 text-[15px] font-semibold px-6 py-3.5 rounded-full border border-gray-200 cursor-pointer transition-all hover:border-[#16a34a] hover:text-[#16a34a] hover:-translate-y-px">
                       How ChangPay works
                     </button>
               </div>
