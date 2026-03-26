@@ -348,7 +348,7 @@ export default function ChangPayHomepage() {
               <p className="text-[15px] text-center text-slate-400 leading-relaxed mb-12">
                 We offer secure and seamless services for converting
                 cryptocurrency, paying Chinese merchants, and managing
-                multi-currency wallets — enabling instant global transactions
+                multi-currency wallets; enabling instant global transactions
                 with ease.
               </p>
             </Reveal>
@@ -404,7 +404,7 @@ export default function ChangPayHomepage() {
                   </p>
                   <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
                     Pay merchants in China directly via Alipay, WeChat Pay, or
-                    Chinese bank accounts — faster and more affordably than
+                    Chinese bank accounts with faster and more affordably than
                     traditional banking routes.
                   </p>
                   <a
@@ -443,7 +443,7 @@ export default function ChangPayHomepage() {
                     </span>
                   </p>
                   <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
-                    Operate your NGN, USD, or Yuan wallets, send and receive
+                    Operate your NGN, USD, EURO, GBP, or YUAN wallets, send and receive
                     money, and easily convert between them. Real-time balances,
                     internal transfers, and full transaction records.
                   </p>
@@ -458,7 +458,7 @@ export default function ChangPayHomepage() {
               <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <p className="text-[14px] text-slate-400 leading-relaxed max-w-[400px]">
                   Whether you're an individual or a business, ChangPay empowers
-                  you to take full control of your financial transactions —
+                  you to take full control of your financial transactions;
                   securely, instantly, and transparently.
                 </p>
                 <button className="bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
@@ -481,7 +481,7 @@ export default function ChangPayHomepage() {
                 Payments with ChangPay?
               </h2>
               <p className="text-[15px] text-slate-400 leading-relaxed max-w-[480px] mx-auto mb-8">
-                Convert, send, and receive money securely and instantly —
+                Convert, send, and receive money securely and instantly
                 whether it's crypto, or payments to international merchants.
               </p>
               <div className="relative inline-block">
@@ -671,7 +671,7 @@ export default function ChangPayHomepage() {
           </div>
         </section>
 
-        <section className="bg-[#ffffff] px-4 md:px-12 py-16 md:py-20">
+        {/* <section className="bg-[#ffffff] px-4 md:px-12 py-16 md:py-20">
           <div className="max-w-[1100px] mx-auto">
             <Reveal className="mb-3">
               <h2
@@ -744,7 +744,7 @@ export default function ChangPayHomepage() {
                 <Reveal delay={240}>
                   <p className="text-[14px] text-[#7B7B7B] leading-relaxed pt-1">
                     Behind the interface, every transaction is recorded as a
-                    debit or credit—ensuring accurate balances and
+                    debit or credit ensuring accurate balances and
                     reconciliation.
                   </p>
                 </Reveal>
@@ -765,7 +765,7 @@ export default function ChangPayHomepage() {
               </Reveal>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="bg-white px-4 md:px-12 py-20 md:py-24">
           <div className="max-w-[1100px] mx-auto">
@@ -979,7 +979,7 @@ export default function ChangPayHomepage() {
             </div>
             <Reveal delay={380} className="text-center mt-9">
               <p className="text-[19px] text-[#ffffff]">
-                Security is applied quietly and consistently—without disrupting
+                Security is applied quietly and consistently without disrupting
                 use.
               </p>
             </Reveal>
@@ -1008,7 +1008,7 @@ export default function ChangPayHomepage() {
               </h2>
               <p className="text-[15px] text-white/80 mb-9 relative max-w-md mx-auto">
                 Create a ChangPay account and access financial tools built for
-                real use—not speculation.
+                real use not speculation.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
                 <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">

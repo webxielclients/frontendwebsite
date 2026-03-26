@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, ReactNode, CSSProperties, RefObject } from 'react';
 import Image from 'next/image';
+import {CircleCheckIcon} from '@/public/icons';
 
 function useInView(threshold = 0.12): [RefObject<HTMLDivElement>, boolean] {
   const ref = useRef<HTMLDivElement>(null as any);
@@ -94,17 +95,14 @@ export default function AboutPage() {
                 Our Mission
               </p>
               <h2 className="text-[15px] md:text-[16px] font-bold leading-[1.7] text-gray-900 mb-5">
-                To empower individuals and businesses with fast, secure, and
-                seamless digital payment solutions that simplify financial
-                transactions, enhance financial inclusion, and foster economic
-                growth across communities.
+                To simplify and accelerate digital asset conversions, empowering users to easily manage and transfer money across multiple currencies.
               </h2>
-              <p className="text-[13.5px] text-gray-500 leading-relaxed">
+              {/* <p className="text-[13.5px] text-gray-500 leading-relaxed">
                 At ChangPay, we believe financial tools should remove
                 barriers—not create them. Every product we build is designed to
                 make money easier to access, easier to move, and easier to
                 understand.
-              </p>
+              </p> */}
             </Reveal>
             <Reveal dir="right" delay={80}>
               <div className="relative h-64 md:h-72 rounded-xl overflow-hidden bg-gray-900">
@@ -127,18 +125,65 @@ export default function AboutPage() {
                 Our Vision
               </p>
               <h2 className="text-[15px] md:text-[16px] font-bold leading-[1.7] text-gray-900 mb-5">
-                To be the most trusted and accessible digital payments platform,
-                transforming the way people send, receive, and manage money—driving
-                innovation, financial freedom, and economic opportunity for all.
+               To become the go-to platform for seamless crypto-to-cash transactions, and global payments shaping the future of finance in emerging markets.
               </h2>
-              <p className="text-[13.5px] text-gray-500 leading-relaxed">
-                Trust and accessibility guide every decision we make—from how our
+              {/* <p className="text-[13.5px] text-gray-500 leading-relaxed">
+                Trust and accessibility guide every decision we make from how our
                 systems are designed to how users experience the platform every day.
-              </p>
+              </p> */}
             </Reveal>
           </div>
         </section>
 
+  <section className="max-w-[1100px] mx-auto px-6 pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+            <Reveal dir="right">
+              <p className="flex items-center gap-2 text-[#1a7a4a] font-semibold text-sm mb-2">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0" />
+                Compliance Notice:
+              </p>
+              <p className="text-[13px] text-gray-500 leading-relaxed mx-2 mb-5">
+               ChangPay operates in accordance with applicable AML/CTF regulations and works with licensed payment and settlement partners where required.
+              </p>
+              <p className="flex items-center gap-2 text-[#1a7a4a] font-semibold text-sm mb-2">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/>
+                Risk closure:
+                </p>
+                <p className="text-[13px] text-gray-500 leading-relaxed mx-2 mb-5">
+                  Digital asset and cross-border transactions carry inherent risks, including price volatility and settlement delays.
+                </p>
+                <p className="flex items-center gap-2 text-[#1a7a4a] font-semibold text-sm mb-2">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/>
+                Disclaimer: 
+              </p>
+              <p className="text-[13px] text-gray-500 leading-relaxed mx-2 mb-2">
+                ChangPay is not a bank or financial institution and does not provide financial or investment advice.
+              </p>
+               <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
+                <CircleCheckIcon/>
+                Instant Conversion: Fast crypto, and asset exchanges
+              </p>
+               <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
+                <CircleCheckIcon/>
+                Multi-Currency Wallets (Coming Soon): Manage NGN, USD, and Yuan.
+              </p>
+               <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
+                {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
+                <CircleCheckIcon/>
+                Customer-Focused: Exceptional support for all your financial needs.
+              </p>
+            </Reveal>
+             
+             <Reveal dir="left" delay={60}>
+              <div className="relative h-64 md:h-80 rounded-xl overflow-hidden bg-gray-900 order-first md:order-last">
+                <Image src="/save.jpg" alt="ChangPay vision visual" fill className="object-cover" />
+              </div>
+            </Reveal>
+          </div>
+        </section>
       
         <section className="px-4 md:px-6 py-10">
           <div className="max-w-[1100px] mx-auto">
@@ -302,8 +347,8 @@ export default function AboutPage() {
                 Looking Ahead
               </h2>
               <p className="text-[15px] text-gray-600 leading-relaxed">
-                ChangPay is continuously improving—expanding capabilities,
-                strengthening infrastructure, and refining the user experience—while
+                ChangPay is continuously improving expanding capabilities,
+                strengthening infrastructure, and refining the user experience while
                 staying grounded in our mission to make digital payments simpler and
                 more inclusive.
               </p>
@@ -331,7 +376,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-green-100 text-[20px] leading-relaxed mb-10 max-w-xl mx-auto">
                 Whether you&apos;re managing personal finances or running a business,
-                ChangPay is built to support how you move money today—and how
+                ChangPay is built to support how you move money today and how
                 you&apos;ll grow tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">

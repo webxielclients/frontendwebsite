@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GooglePlay, ApplePay } from "@/public/icons";
+import {LinkedInIcon} from '@/public/icons';
 
 function SocialBtn({
   label,
@@ -97,7 +98,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom — copyright + social */}
         <div className="flex flex-col items-center md:flex-row md:justify-between gap-4 pt-6">
           <span className="text-[12.5px] text-gray-400">
             © 2026 ChangPay. All right reserved
@@ -135,6 +135,11 @@ export default function Footer() {
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none" />
               </svg>
+            </SocialBtn>
+            <SocialBtn
+            label="Linkedin"
+            href="https://www.linkedin.com/company/usechangpay/">
+              <LinkedInIcon/>
             </SocialBtn>
           </div>
         </div>

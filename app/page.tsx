@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import ChangPayHomepage from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Instant Crypto to Cash & Global Payments",
-  description: "ChangPay offers secure and instant crypto-to-cash conversions, and payments to Chinese merchants.",
+  title: "Home | ChangPay | Recieve, Convert &  Pay Globally",
+  description: "ChangPay Offers Secured Global Payments, Instant Crypto to Cash and Payment to Chinese Merchants",
   alternates: { canonical: "https://www.usechangpay.com" },
   openGraph: {
     url: "https://www.usechangpay.com",
-    title: "ChangPay | Instant Crypto to Cash & Global Payments",
+    title: "Home | ChangPay | Recieve, Convert &  Pay Globally",
   },
 };
 

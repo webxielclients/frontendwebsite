@@ -213,3 +213,54 @@ export const IBank = ({ filled = false}: { filled?: boolean }) => (
     <path d="M3 17h14M3 8h14M10 3l7 5H3l7-5zM6 8v9M10 8v9M14 8v9" />
   </svg>
 );
+
+export const CircleCheckIcon = ({ className = "w-3 h-3", color = "#1a7a4a" }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke={color}
+      className={className}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+};
+
+export const LinkedInIcon = ({ 
+  className = "w-6 h-6", 
+  stroke = "white", 
+  strokeWidth = 2,
+  fill = "none",
+  bgColor = "none"
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 24 24"
+      fill={fill}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      
+      <path
+        stroke={stroke}
+        fill={fill === "none" ? "none" : stroke}
+        d="M8 11v5M8 8v.01M12 16v-5m4 5v-3a2 2 0 0 0-4 0"
+      />
+      <circle cx="8" cy="8" r="1" fill={stroke} stroke="none" />
+    </svg>
+  );
+};
