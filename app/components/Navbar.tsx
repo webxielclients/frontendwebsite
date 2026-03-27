@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Modal from "./modals/Modal";
+import WaitlistForm from './waitlistForm';
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -18,6 +20,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
+
+  const openWaitlistModal = () => setIsWaitlistModalOpen(true);
+  const closeWaitlistModal = () => setIsWaitlistModalOpen(false);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
@@ -110,12 +117,12 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
+            <button
+              onClick={openWaitlistModal}
               className="hidden md:inline-flex w-[246px] items-center justify-center bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-green-500/20 no-underline"
             >
-              Get started
-            </Link>
+              Join waitlist
+            </button>
 
             <button
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer gap-[5px]"
@@ -188,9 +195,11 @@ export default function Navbar() {
             );
           })}
 
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              openWaitlistModal();
+            }}
             className="nav-font mt-8 bg-[#16a34a] text-center align-center w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full no-underline transition-all duration-200"
             style={{
               opacity: 0,
@@ -200,10 +209,14 @@ export default function Navbar() {
                 : "none",
             }}
           >
-            Get Started
-          </Link>
+            Join waitlist
+          </button>
         </div>
       </div>
+
+        <Modal isOpen={isWaitlistModalOpen} onClose={closeWaitlistModal}>
+        <WaitlistForm onClose={closeWaitlistModal} isModal={true} />
+      </Modal>
     </>
   );
 }
