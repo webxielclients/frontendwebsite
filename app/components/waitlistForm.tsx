@@ -38,8 +38,7 @@ interface FormErrors {
 
 type Status = "idle" | "loading" | "success" | "flagged";
 
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY_LOCAL!;
-
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!;
 
 const SOURCE_OPTIONS: Option[] = [
   { value: "google", label: "Google" },
@@ -65,11 +64,20 @@ const INTEREST_OPTIONS: Option[] = [
 ];
 
 const PRODUCT_TYPE_OPTIONS: Option[] = [
-  { value: "mobile-wallet-digital-wallet", label: "Mobile Wallet / Digital Wallet" },
+  {
+    value: "mobile-wallet-digital-wallet",
+    label: "Mobile Wallet / Digital Wallet",
+  },
   { value: "payment-gateway", label: "Payment Gateway" },
   { value: "money-transfer-service", label: "Money Transfer Service" },
-  { value: "fintech-platform-b2c-b2b", label: "Fintech Platform (B2C and/or B2B)" },
-  { value: "api-based-payment-infrastructure", label: "API-based Payment Infrastructure" },
+  {
+    value: "fintech-platform-b2c-b2b",
+    label: "Fintech Platform (B2C and/or B2B)",
+  },
+  {
+    value: "api-based-payment-infrastructure",
+    label: "API-based Payment Infrastructure",
+  },
 ];
 
 const INITIAL_FORM: FormState = {
@@ -94,7 +102,17 @@ interface SelectFieldProps {
   placeholder?: string;
 }
 
-function SelectField({ id, label, required, optional, options, value, onChange, error, placeholder }: SelectFieldProps) {
+function SelectField({
+  id,
+  label,
+  required,
+  optional,
+  options,
+  value,
+  onChange,
+  error,
+  placeholder,
+}: SelectFieldProps) {
   return (
     <div className="wl-field">
       <label htmlFor={id} className="wl-label">
@@ -109,9 +127,13 @@ function SelectField({ id, label, required, optional, options, value, onChange, 
           onChange={(e) => onChange(e.target.value)}
           className={`wl-select${error ? " wl-input-error" : ""}`}
         >
-          <option value="" disabled>{placeholder ?? `Select ${label.toLowerCase()}`}</option>
+          <option value="" disabled>
+            {placeholder ?? `Select ${label.toLowerCase()}`}
+          </option>
           {options.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
           ))}
         </select>
       </div>
@@ -134,7 +156,19 @@ interface InputFieldProps {
   tabIndex?: number;
 }
 
-function InputField({ id, label, type = "text", required, optional, value, onChange, placeholder, autoComplete, error, tabIndex }: InputFieldProps) {
+function InputField({
+  id,
+  label,
+  type = "text",
+  required,
+  optional,
+  value,
+  onChange,
+  placeholder,
+  autoComplete,
+  error,
+  tabIndex,
+}: InputFieldProps) {
   return (
     <div className="wl-field">
       <label htmlFor={id} className="wl-label">
@@ -234,24 +268,32 @@ function validate(form: FormState): FormErrors {
   if (!/^[\+\d\s\-()\u0000-\uffff]{7,20}$/.test(form.phone))
     errors.phone = "Enter a valid phone number.";
   if (!form.source) errors.source = "Please select a source.";
-  if (!form.metadata.interest) errors.interest = "Please select a service of interest.";
-  if (!form.metadata.product_type) errors.product_type = "Please select a product type.";
+  if (!form.metadata.interest)
+    errors.interest = "Please select a service of interest.";
+  if (!form.metadata.product_type)
+    errors.product_type = "Please select a product type.";
   return errors;
 }
 
-export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormProps) {
+export default function WaitlistForm({
+  onClose,
+  isModal = false,
+}: WaitlistFormProps) {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState(false);
-  const {toast} = useToast();
+  const { toast } = useToast();
 
   const set = (field: keyof Omit<FormState, "metadata">) => (value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
   const setMeta = (field: keyof FormState["metadata"]) => (value: string) =>
-    setForm((prev) => ({ ...prev, metadata: { ...prev.metadata, [field]: value } }));
+    setForm((prev) => ({
+      ...prev,
+      metadata: { ...prev.metadata, [field]: value },
+    }));
 
   const handleTurnstileVerify = useCallback((token: string) => {
     setTurnstileToken(token);
@@ -263,12 +305,18 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (form.website) { toast('error', 'Submission flagged'); return; }
+    if (form.website) {
+      toast("error", "Submission flagged");
+      return;
+    }
 
     const errs = validate(form);
     const hasCaptchaError = !turnstileToken;
     if (hasCaptchaError) setCaptchaError(true);
-    if (Object.keys(errs).length || hasCaptchaError) { setErrors(errs); return; }
+    if (Object.keys(errs).length || hasCaptchaError) {
+      setErrors(errs);
+      return;
+    }
 
     setErrors({});
     setCaptchaError(false);
@@ -281,36 +329,45 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
       source: form.source,
       referral_code: form.referral_code.trim() || null,
       turnstile_token: turnstileToken,
-      metadata: { interest: form.metadata.interest, product_type: form.metadata.product_type },
+      metadata: {
+        interest: form.metadata.interest,
+        product_type: form.metadata.product_type,
+      },
     };
 
-   try {
-  const res = await fetch("/api/waitlist", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
- const data = await res.json();
+      const data = await res.json();
 
-  if (!res.ok) {
-    throw new Error(data?.message || "Request failed");
-  }
+      if (!res.ok) {
+        throw new Error(data?.message || "Request failed");
+      }
 
-  // setStatus("success");
-  toast('success', `${data.message || "You have been added to the waitlist."}`);
-} catch (err) {
-  console.error("SUBMIT ERROR:", err);
-  // setStatus("idle");
-  toast('error', 'Submission failed', err instanceof Error ? err.message : "Something went wrong.");
+      // setStatus("success");
+      toast(
+        "success",
+        `${data.message || "You have been added to the waitlist."}`,
+      );
+    } catch (err) {
+      console.error("SUBMIT ERROR:", err);
+      // setStatus("idle");
+      toast(
+        "error",
+        "Submission failed",
+        err instanceof Error ? err.message : "Something went wrong.",
+      );
 
-  const message =
-    err instanceof Error ? err.message : "Something went wrong.";
+      const message =
+        err instanceof Error ? err.message : "Something went wrong.";
 
-  setErrors({ form: message });
-}
+      setErrors({ form: message });
+    }
   };
-
 
   return (
     <>
@@ -681,7 +738,9 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
       <div className="wl-root">
         <div className="wl-header">
           {isModal && onClose && (
-            <button className="wl-close-x" onClick={onClose} aria-label="Close">✕</button>
+            <button className="wl-close-x" onClick={onClose} aria-label="Close">
+              ✕
+            </button>
           )}
           <div className="wl-badge">
             <span className="wl-badge-dot" />
@@ -691,7 +750,8 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
             Join the <span>Waitlist</span>
           </h2>
           <p className="wl-header-sub">
-            Be among the first to access our platform. Drop your details and we&apos;ll reach out when you&apos;re up.
+            Be among the first to access our platform. Drop your details and
+            we&apos;ll reach out when you&apos;re up.
           </p>
         </div>
 
@@ -707,7 +767,9 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
                 tabIndex={-1}
                 autoComplete="off"
                 value={form.website}
-                onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
+                onChange={(e) =>
+                  setForm((prev) => ({ ...prev, website: e.target.value }))
+                }
               />
             </div>
 
@@ -805,16 +867,24 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
                 onExpire={handleTurnstileExpire}
               />
               {captchaError && (
-                <p className="wl-captcha-err">Please complete the verification above.</p>
+                <p className="wl-captcha-err">
+                  Please complete the verification above.
+                </p>
               )}
             </div>
 
-            <button type="submit" className="wl-submit" disabled={status === "loading"}>
+            <button
+              type="submit"
+              className="wl-submit"
+              disabled={status === "loading"}
+            >
               {status === "loading" ? "Submitting…" : "Join the Waitlist →"}
             </button>
           </form>
 
-          <p className="wl-privacy">🔒 No spam, ever. Your data stays private.</p>
+          <p className="wl-privacy">
+            🔒 No spam, ever. Your data stays private.
+          </p>
         </div>
       </div>
     </>

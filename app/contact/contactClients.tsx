@@ -125,8 +125,7 @@ function Field({
   );
 }
 
-const TURNSTILE_SITE_KEY =
-  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY_LOCAL!;
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!;
 
 interface TurnstileWidgetProps {
   siteKey: string;
