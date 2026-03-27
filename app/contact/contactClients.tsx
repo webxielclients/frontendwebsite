@@ -37,12 +37,7 @@ interface RevealProps {
   dir?: "up" | "down" | "left" | "right";
   className?: string;
 }
-function Reveal({
-  children,
-  delay = 0,
-  dir = "up",
-  className = "",
-}: RevealProps) {
+function Reveal({ children, delay = 0, dir = "up", className = "" }: RevealProps) {
   const [ref, inView] = useInView();
   const translate: Record<string, string> = {
     up: "translateY(28px)",
@@ -79,15 +74,8 @@ interface FieldProps {
 }
 
 function Field({
-  label,
-  id,
-  type = "text",
-  placeholder,
-  as: Tag = "input",
-  rows,
-  value,
-  onChange,
-  error,
+  label, id, type = "text", placeholder, as: Tag = "input",
+  rows, value, onChange, error,
 }: FieldProps) {
   const base = `w-full border rounded-lg px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 
     focus:outline-none focus:ring-1 transition-colors bg-white 
@@ -133,11 +121,7 @@ interface TurnstileWidgetProps {
   onExpire: () => void;
 }
 
-function TurnstileWidget({
-  siteKey,
-  onVerify,
-  onExpire,
-}: TurnstileWidgetProps) {
+function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
 
@@ -145,12 +129,7 @@ function TurnstileWidget({
     if (!siteKey) return;
 
     function renderWidget() {
-      if (
-        !containerRef.current ||
-        widgetIdRef.current !== null ||
-        !window.turnstile
-      )
-        return;
+      if (!containerRef.current || widgetIdRef.current !== null || !window.turnstile) return;
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
         callback: onVerify,
@@ -159,22 +138,14 @@ function TurnstileWidget({
       });
     }
 
-    if (window.turnstile) {
-      renderWidget();
-      return;
-    }
+    if (window.turnstile) { renderWidget(); return; }
 
-    const existing = document.querySelector(
-      'script[src*="challenges.cloudflare.com/turnstile"]',
-    );
-
+    const existing = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
     if (existing) {
-      // Script tag exists but hasn't finished loading — wait for it
       existing.addEventListener("load", renderWidget, { once: true });
     } else {
       const script = document.createElement("script");
-      script.src =
-        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
       script.async = true;
       script.defer = true;
       script.onload = renderWidget;
@@ -197,6 +168,7 @@ function TurnstileWidget({
 }
 
 type FormState = "idle" | "loading" | "success" | "error";
+
 const EMPTY = {
   firstName: "",
   lastName: "",
@@ -211,7 +183,6 @@ export default function ContactPage() {
   const [fields, setFields] = useState(EMPTY);
   const [errors, setErrors] = useState<Partial<typeof EMPTY>>({});
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileError, setTurnstileError] = useState("");
   const [formState, setFormState] = useState<FormState>("idle");
   const [apiError, setApiError] = useState("");
@@ -222,23 +193,21 @@ export default function ContactPage() {
   }, []);
 
   useEffect(() => {
-    const handler = () => setTurnstileReady(true);
+    const handler = () => {};
     window.addEventListener("turnstile:ready", handler, { once: true });
-    if (window.turnstile) setTurnstileReady(true);
     return () => window.removeEventListener("turnstile:ready", handler);
   }, []);
 
-  const set = (key: keyof typeof EMPTY) => (val: string) =>
+  const set = (key: keyof typeof EMPTY) => (val: string) => {
     setFields((f) => ({ ...f, [key]: val }));
+    setErrors((prev) => ({ ...prev, [key]: undefined }));
+  };
 
   const validate = () => {
     const e: Partial<typeof EMPTY> = {};
     if (!fields.firstName.trim()) e.firstName = "First name is required.";
     if (!fields.lastName.trim()) e.lastName = "Last name is required.";
-    if (
-      !fields.email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)
-    )
+    if (!fields.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))
       e.email = "A valid email is required.";
     if (!fields.message.trim()) e.message = "Please leave a message.";
     return e;
@@ -279,9 +248,7 @@ export default function ContactPage() {
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {
-          setApiError(
-            data?.message ?? "Something went wrong. Please try again.",
-          );
+          setApiError(data?.message ?? "Something went wrong. Please try again.");
           setFormState("error");
           setTurnstileToken("");
           return;
@@ -290,232 +257,177 @@ export default function ContactPage() {
         setFormState("success");
         setFields(EMPTY);
       } catch {
-        setApiError(
-          "Network error. Please check your connection and try again.",
-        );
+        setApiError("Network error. Please check your connection and try again.");
         setFormState("error");
       }
     },
-    [fields, turnstileToken],
-  ); // eslint-disable-line react-hooks/exhaustive-deps
+    [fields, turnstileToken], 
+  );
 
   return (
-    <>
-      {/* <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit"
-        strategy="afterInteractive"
-        onLoad={() => {
-          if (window.turnstile) setTurnstileReady(true);
-        }}
-      />
-      <Script id="turnstile-onload-cb" strategy="afterInteractive">{`
-        window.onTurnstileLoad = function() {
-          window.dispatchEvent(new Event('turnstile:ready'));
-        };
-      `}</Script> */}
+    <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
+      <main>
+        <div
+          className="hidden md:block w-full relative overflow-hidden"
+          style={{ opacity: heroIn ? 1 : 0, transition: "opacity .8s ease", height: 220 }}
+        >
+          <Image
+            src="/Contactimage.png"
+            alt="Contact ChangPay"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
 
-      <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
-        <main>
-          <div
-            className="hidden md:block w-full relative overflow-hidden"
-            style={{
-              opacity: heroIn ? 1 : 0,
-              transition: "opacity .8s ease",
-              height: 220,
-            }}
-          >
-            <Image
-              src="/Contactimage.png"
-              alt="Contact ChangPay"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
+        <section className="max-w-[760px] mx-auto px-6 py-16 md:py-20">
+          <Reveal>
+            <h1 className="text-[32px] md:text-[40px] font-bold text-center text-[#0d3b2e] mb-3 leading-tight">
+              Get In Touch
+            </h1>
+            <p className="text-center text-[15px] text-gray-600 mb-12">
+              You can reach us anytime via{" "}
+              <a
+                href="mailto:support@usechangpay.com"
+                className="text-[#16a34a] font-medium hover:underline transition-all"
+              >
+                support@usechangpay.com
+              </a>
+            </p>
+          </Reveal>
 
-          <section className="max-w-[760px] mx-auto px-6 py-16 md:py-20">
+          {formState === "success" ? (
             <Reveal>
-              <h1 className="text-[32px] md:text-[40px] font-bold text-center text-[#0d3b2e] mb-3 leading-tight">
-                Get In Touch
-              </h1>
-              <p className="text-center text-[15px] text-gray-600 mb-12">
-                You can reach us anytime via{" "}
-                <a
-                  href="mailto:support@usechangpay.com"
-                  className="text-[#16a34a] font-medium hover:underline transition-all"
-                >
-                  support@usechangpay.com
-                </a>
-              </p>
-            </Reveal>
-
-            {formState === "success" ? (
-              <Reveal>
-                <div className="text-center py-16 flex flex-col items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-[#16a34a]"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h2 className="text-[22px] font-bold text-[#0d3b2e]">
-                    Message Sent!
-                  </h2>
-                  <p className="text-gray-500 text-[15px] max-w-[340px]">
-                    Thanks for reaching out. We'll get back to you as soon as
-                    possible.
-                  </p>
-                  <button
-                    onClick={() => setFormState("idle")}
-                    className="mt-2 text-[14px] text-[#16a34a] font-medium hover:underline cursor-pointer"
+              <div className="text-center py-16 flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
+                  <svg
+                    className="w-8 h-8 text-[#16a34a]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
                   >
-                    Send another message
-                  </button>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
                 </div>
-              </Reveal>
-            ) : (
-              <Reveal delay={80}>
-                <form
-                  className="flex flex-col gap-5"
-                  onSubmit={handleSubmit}
-                  noValidate
+                <h2 className="text-[22px] font-bold text-[#0d3b2e]">Message Sent!</h2>
+                <p className="text-gray-500 text-[15px] max-w-[340px]">
+                  Thanks for reaching out. We&apos;ll get back to you as soon as possible.
+                </p>
+                <button
+                  onClick={() => setFormState("idle")}
+                  className="mt-2 text-[14px] text-[#16a34a] font-medium hover:underline cursor-pointer"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <Field
-                      label="First name"
-                      id="first-name"
-                      placeholder="First name"
-                      value={fields.firstName}
-                      onChange={set("firstName")}
-                      error={errors.firstName}
-                    />
-                    <Field
-                      label="Last name"
-                      id="last-name"
-                      placeholder="Last name"
-                      value={fields.lastName}
-                      onChange={set("lastName")}
-                      error={errors.lastName}
-                    />
+                  Send another message
+                </button>
+              </div>
+            </Reveal>
+          ) : (
+            <Reveal delay={80}>
+              <form className="flex flex-col gap-5" onSubmit={handleSubmit} noValidate>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Field
+                    label="First name"
+                    id="first-name"
+                    placeholder="First name"
+                    value={fields.firstName}
+                    onChange={set("firstName")}
+                    error={errors.firstName}
+                  />
+                  <Field
+                    label="Last name"
+                    id="last-name"
+                    placeholder="Last name"
+                    value={fields.lastName}
+                    onChange={set("lastName")}
+                    error={errors.lastName}
+                  />
+                </div>
+                <Field
+                  label="Email"
+                  id="email"
+                  type="email"
+                  placeholder="example@gmail.com"
+                  value={fields.email}
+                  onChange={set("email")}
+                  error={errors.email}
+                />
+                <Field
+                  label="Phone number"
+                  id="phone"
+                  type="tel"
+                  placeholder="Phone number"
+                  value={fields.phone}
+                  onChange={set("phone")}
+                />
+                <Field
+                  label="Message"
+                  id="message"
+                  as="textarea"
+                  placeholder="Leave us a message"
+                  rows={7}
+                  value={fields.message}
+                  onChange={set("message")}
+                  error={errors.message}
+                />
+
+                <div
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
+                >
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={fields.website}
+                    onChange={(e) => setFields((f) => ({ ...f, website: e.target.value }))}
+                  />
+                </div>
+
+                <TurnstileWidget
+                  siteKey={TURNSTILE_SITE_KEY}
+                  onVerify={(token) => {
+                    setTurnstileToken(token);
+                    setTurnstileError("");
+                  }}
+                  onExpire={() => setTurnstileToken("")}
+                />
+                {turnstileError && (
+                  <p className="text-[12px] text-red-500 -mt-3">{turnstileError}</p>
+                )}
+
+                {apiError && (
+                  <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-[13px] text-red-600">
+                    {apiError}
                   </div>
-                  <Field
-                    label="Email"
-                    id="email"
-                    type="email"
-                    placeholder="example@gmail.com"
-                    value={fields.email}
-                    onChange={set("email")}
-                    error={errors.email}
-                  />
-                  <Field
-                    label="Phone number"
-                    id="phone"
-                    type="tel"
-                    placeholder="Phone number"
-                    value={fields.phone}
-                    onChange={set("phone")}
-                  />
-                  <Field
-                    label="Message"
-                    id="message"
-                    as="textarea"
-                    placeholder="Leave us a message"
-                    rows={7}
-                    value={fields.message}
-                    onChange={set("message")}
-                    error={errors.message}
-                  />
+                )}
 
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      position: "absolute",
-                      left: "-9999px",
-                      width: 1,
-                      height: 1,
-                      overflow: "hidden",
-                    }}
-                  >
-                    <input
-                      id="website"
-                      name="website"
-                      type="text"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      value={fields.website}
-                      onChange={(e) => set("website")(e.target.value)}
-                    />
-                  </div>
-
-                  <TurnstileWidget
-                    siteKey={TURNSTILE_SITE_KEY}
-                    onVerify={(token) => {
-                      setTurnstileToken(token);
-                      setTurnstileError("");
-                    }}
-                    onExpire={() => setTurnstileToken("")}
-                  />
-                  {turnstileError && (
-                    <p className="text-[12px] text-red-500 -mt-3">
-                      {turnstileError}
-                    </p>
+                <button
+                  type="submit"
+                  disabled={formState === "loading"}
+                  className="w-full bg-[#16a34a] hover:bg-[#15803d] active:bg-[#14532d] disabled:opacity-60 
+                    disabled:cursor-not-allowed text-white font-semibold text-[15px] py-4 rounded-lg 
+                    transition-colors cursor-pointer border-none mt-1 flex items-center justify-center gap-2"
+                >
+                  {formState === "loading" ? (
+                    <>
+                      <svg className="animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                      </svg>
+                      Sending…
+                    </>
+                  ) : (
+                    "Send Message"
                   )}
-
-                  {apiError && (
-                    <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-[13px] text-red-600">
-                      {apiError}
-                    </div>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={formState === "loading"}
-                    className="w-full bg-[#16a34a] hover:bg-[#15803d] active:bg-[#14532d] disabled:opacity-60 
-                      disabled:cursor-not-allowed text-white font-semibold text-[15px] py-4 rounded-lg 
-                      transition-colors cursor-pointer border-none mt-1 flex items-center justify-center gap-2"
-                  >
-                    {formState === "loading" ? (
-                      <>
-                        <svg
-                          className="animate-spin w-4 h-4 text-white"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8v8H4z"
-                          />
-                        </svg>
-                        Sending…
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </button>
-                </form>
-              </Reveal>
-            )}
-          </section>
-        </main>
-      </div>
-    </>
+                </button>
+              </form>
+            </Reveal>
+          )}
+        </section>
+      </main>
+    </div>
   );
 }
