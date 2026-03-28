@@ -237,6 +237,8 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
   const [captchaError, setCaptchaError] = useState(false);
   const { toast } = useToast();
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const set = (field: keyof Omit<FormState, "metadata">) => (value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -291,10 +293,14 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
 
       const data = await res.json().catch(() => ({}));
 
+      console.log(data);
+      console.log(data.message);
+
       if (!res.ok) throw new Error(data?.message ?? "Request failed");
 
       setStatus("success");
-      toast("success", data.message ?? "You've been added to the waitlist.");
+      setSuccessMessage(data.message || "You have been added to the waitlist!");
+      toast("success", data.message);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       toast("error", "Submission failed", message);
@@ -322,7 +328,7 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
             </div>
             <h3 className="wl-success-title">You&apos;re on the list!</h3>
             <p className="wl-success-sub">
-              We&apos;ll reach out to <strong>{form.email}</strong> when it&apos;s your turn.
+              {successMessage} We&apos;ll reach out to <strong>{form.email}</strong>. <br/> Please confirm your email to secure your spot and stay updated on our launch.
             </p>
             {onClose && (
               <button onClick={onClose} className="wl-submit" style={{ marginTop: 8 }}>Close</button>
