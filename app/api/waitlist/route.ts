@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   try {
-    const res = await fetch("https://api.usechangpay.com/api/v1/waitlist", {
+    const res = await fetch("https://api.usechangpay.com/v1/waitlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

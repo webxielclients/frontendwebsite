@@ -167,6 +167,93 @@ function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) 
   );
 }
 
+
+function EmailIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-[#16a34a]"
+    >
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-[#16a34a]"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.3 2 2 0 0 1 3.89 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function ContactInfoCards() {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+      {/* Email Card */}
+      <div className="flex items-start gap-4 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] px-5 py-5 transition-shadow hover:shadow-md">
+        <div className="mt-0.5 shrink-0 w-10 h-10 rounded-full bg-white border border-[#bbf7d0] flex items-center justify-center shadow-sm">
+          <EmailIcon />
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <span className="text-[13px] font-semibold text-[#0d3b2e] uppercase tracking-wide">
+            Email Us
+          </span>
+          <a
+            href="mailto:support@usechangpay.com"
+            className="text-[14px] font-medium text-gray-800 hover:text-[#16a34a] transition-colors break-all"
+          >
+            support@usechangpay.com
+          </a>
+          <span className="text-[12px] text-[#16a34a] font-medium mt-0.5">
+            Response in 2–4 hours
+          </span>
+        </div>
+      </div>
+
+      {/* Phone Card */}
+      <div className="flex items-start gap-4 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] px-5 py-5 transition-shadow hover:shadow-md">
+        <div className="mt-0.5 shrink-0 w-10 h-10 rounded-full bg-white border border-[#bbf7d0] flex items-center justify-center shadow-sm">
+          <PhoneIcon />
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <span className="text-[13px] font-semibold text-[#0d3b2e] uppercase tracking-wide">
+            Call Us
+          </span>
+          <a
+            href="tel:+234 704 276-4245"
+            className="text-[14px] font-medium text-gray-800 hover:text-[#16a34a] transition-colors"
+          >
+            +234 000 0000 000
+          </a>
+          <span className="text-[12px] text-[#16a34a] font-medium mt-0.5">
+            Available 9AM – 6PM EST
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 type FormState = "idle" | "loading" | "success" | "error";
 
 const EMPTY = {
@@ -261,7 +348,7 @@ export default function ContactPage() {
         setFormState("error");
       }
     },
-    [fields, turnstileToken], 
+    [fields, turnstileToken],
   );
 
   return (
@@ -321,6 +408,11 @@ export default function ContactPage() {
                   Send another message
                 </button>
               </div>
+
+              {/* Cards shown on success state too */}
+              <Reveal delay={120}>
+                <ContactInfoCards />
+              </Reveal>
             </Reveal>
           ) : (
             <Reveal delay={80}>
@@ -371,6 +463,7 @@ export default function ContactPage() {
                   error={errors.message}
                 />
 
+                {/* Honeypot */}
                 <div
                   aria-hidden="true"
                   style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
@@ -424,6 +517,11 @@ export default function ContactPage() {
                   )}
                 </button>
               </form>
+
+              {/* ── Contact Info Cards ── */}
+              <Reveal delay={160}>
+                <ContactInfoCards />
+              </Reveal>
             </Reveal>
           )}
         </section>

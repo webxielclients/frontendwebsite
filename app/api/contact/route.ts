@@ -1,7 +1,7 @@
 export async function POST(req: Request) {
   const body = await req.json();
 
-  const res = await fetch('https://api.usechangpay.com/api/v1/contact', {
+  const res = await fetch('https://api.usechangpay.com/v1/contact', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
