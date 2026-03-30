@@ -242,7 +242,7 @@ function ContactInfoCards() {
             href="tel:+234 704 276-4245"
             className="text-[14px] font-medium text-gray-800 hover:text-[#16a34a] transition-colors"
           >
-            +234 000 0000 000
+            +234 704 276-4245
           </a>
           <span className="text-[12px] text-[#16a34a] font-medium mt-0.5">
             Available 9AM – 6PM EST
