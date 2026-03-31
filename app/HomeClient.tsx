@@ -17,6 +17,8 @@ import {
 } from "@/public/icons";
 
 import { useRouter } from "next/navigation";
+import Modal from './components/modals/Modal';
+import WaitlistForm from './components/waitlistForm';
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -109,6 +111,11 @@ export default function ChangPayHomepage() {
   const [heroIn, setHeroIn] = useState(false);
 
   const router = useRouter();
+ const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
+
+  const openWaitlistModal = () => setIsWaitlistModalOpen(true);
+  const closeWaitlistModal = () => setIsWaitlistModalOpen(false);
+
 
   useEffect(() => {
     const t = setTimeout(() => setHeroIn(true), 100);
@@ -122,6 +129,7 @@ export default function ChangPayHomepage() {
   });
 
   return (
+    <>
     <div
       className="text-gray-900 bg-white overflow-x-hidden"
       style={{
@@ -455,8 +463,8 @@ export default function ChangPayHomepage() {
                   you to take full control of your financial transactions;
                   securely, instantly, and transparently.
                 </p>
-                <button className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
-                  Get started today
+                <button onClick={openWaitlistModal} className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px whitespace-nowrap">
+                  Join waitlist
                 </button>
               </div>
             </Reveal>
@@ -924,5 +932,9 @@ export default function ChangPayHomepage() {
         </section>
       </main>
     </div>
+    <Modal isOpen={isWaitlistModalOpen} onClose={closeWaitlistModal}>
+            <WaitlistForm onClose={closeWaitlistModal} isModal={true} />
+          </Modal>
+          </>
   );
 }

@@ -66,11 +66,20 @@ const INTEREST_OPTIONS: Option[] = [
 ];
 
 const PRODUCT_TYPE_OPTIONS: Option[] = [
-  { value: "mobile-wallet-digital-wallet", label: "Mobile Wallet / Digital Wallet" },
+  {
+    value: "mobile-wallet-digital-wallet",
+    label: "Mobile Wallet / Digital Wallet",
+  },
   { value: "payment-gateway", label: "Payment Gateway" },
   { value: "money-transfer-service", label: "Money Transfer Service" },
-  { value: "fintech-platform-b2c-b2b", label: "Fintech Platform (B2C and/or B2B)" },
-  { value: "api-based-payment-infrastructure", label: "API-based Payment Infrastructure" },
+  {
+    value: "fintech-platform-b2c-b2b",
+    label: "Fintech Platform (B2C and/or B2B)",
+  },
+  {
+    value: "api-based-payment-infrastructure",
+    label: "API-based Payment Infrastructure",
+  },
 ];
 
 const INITIAL_FORM: FormState = {
@@ -81,7 +90,6 @@ const INITIAL_FORM: FormState = {
   referral_code: "",
   metadata: { interest: "", product_type: "" },
 };
-
 
 interface SelectFieldProps {
   id: string;
@@ -96,7 +104,15 @@ interface SelectFieldProps {
 }
 
 function SelectField({
-  id, label, required, optional, options, value, onChange, error, placeholder,
+  id,
+  label,
+  required,
+  optional,
+  options,
+  value,
+  onChange,
+  error,
+  placeholder,
 }: SelectFieldProps) {
   return (
     <div className="wl-field">
@@ -112,9 +128,13 @@ function SelectField({
           onChange={(e) => onChange(e.target.value)}
           className={`wl-select${error ? " wl-input-error" : ""}`}
         >
-          <option value="" disabled>{placeholder ?? `Select ${label.toLowerCase()}`}</option>
+          <option value="" disabled>
+            {placeholder ?? `Select ${label.toLowerCase()}`}
+          </option>
           {options.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
           ))}
         </select>
       </div>
@@ -138,8 +158,17 @@ interface InputFieldProps {
 }
 
 function InputField({
-  id, label, type = "text", required, optional, value,
-  onChange, placeholder, autoComplete, error, tabIndex,
+  id,
+  label,
+  type = "text",
+  required,
+  optional,
+  value,
+  onChange,
+  placeholder,
+  autoComplete,
+  error,
+  tabIndex,
 }: InputFieldProps) {
   return (
     <div className="wl-field">
@@ -163,14 +192,17 @@ function InputField({
   );
 }
 
-
 interface TurnstileWidgetProps {
   siteKey: string;
   onVerify: (token: string) => void;
   onExpire: () => void;
 }
 
-function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) {
+function TurnstileWidget({
+  siteKey,
+  onVerify,
+  onExpire,
+}: TurnstileWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
 
@@ -178,7 +210,12 @@ function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) 
     if (!siteKey) return;
 
     function renderWidget() {
-      if (!containerRef.current || widgetIdRef.current !== null || !window.turnstile) return;
+      if (
+        !containerRef.current ||
+        widgetIdRef.current !== null ||
+        !window.turnstile
+      )
+        return;
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
         callback: onVerify,
@@ -187,14 +224,20 @@ function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) 
       });
     }
 
-    if (window.turnstile) { renderWidget(); return; }
+    if (window.turnstile) {
+      renderWidget();
+      return;
+    }
 
-    const existing = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
+    const existing = document.querySelector(
+      'script[src*="challenges.cloudflare.com/turnstile"]',
+    );
     if (existing) {
       existing.addEventListener("load", renderWidget, { once: true });
     } else {
       const script = document.createElement("script");
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.src =
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
       script.async = true;
       script.defer = true;
       script.onload = renderWidget;
@@ -212,7 +255,6 @@ function TurnstileWidget({ siteKey, onVerify, onExpire }: TurnstileWidgetProps) 
   return <div ref={containerRef} />;
 }
 
-
 function validate(form: FormState): FormErrors {
   const errors: FormErrors = {};
   if (!form.name.trim() || form.name.trim().length < 2)
@@ -222,13 +264,17 @@ function validate(form: FormState): FormErrors {
   if (!/^[\+\d\s\-()\u0000-\uffff]{7,20}$/.test(form.phone))
     errors.phone = "Enter a valid phone number.";
   if (!form.source) errors.source = "Please select a source.";
-  if (!form.metadata.interest) errors.interest = "Please select a service of interest.";
-  if (!form.metadata.product_type) errors.product_type = "Please select a product type.";
+  if (!form.metadata.interest)
+    errors.interest = "Please select a service of interest.";
+  if (!form.metadata.product_type)
+    errors.product_type = "Please select a product type.";
   return errors;
 }
 
-
-export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormProps) {
+export default function WaitlistForm({
+  onClose,
+  isModal = false,
+}: WaitlistFormProps) {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [honeypot, setHoneypot] = useState<HoneypotState>({ website: "" });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -237,7 +283,7 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
   const [captchaError, setCaptchaError] = useState(false);
   const { toast } = useToast();
 
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
 
   const set = (field: keyof Omit<FormState, "metadata">) => (value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -245,7 +291,10 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
   };
 
   const setMeta = (field: keyof FormState["metadata"]) => (value: string) => {
-    setForm((prev) => ({ ...prev, metadata: { ...prev.metadata, [field]: value } }));
+    setForm((prev) => ({
+      ...prev,
+      metadata: { ...prev.metadata, [field]: value },
+    }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
@@ -256,57 +305,65 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
 
   const handleTurnstileExpire = useCallback(() => setTurnstileToken(null), []);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    const errs = validate(form);
-    setErrors(errs);
+      const errs = validate(form);
+      setErrors(errs);
 
-    if (!turnstileToken) {
-      setCaptchaError(true);
-    } else {
-      setCaptchaError(false);
-    }
+      if (!turnstileToken) {
+        setCaptchaError(true);
+      } else {
+        setCaptchaError(false);
+      }
 
-    if (Object.keys(errs).length || !turnstileToken) return;
+      if (Object.keys(errs).length || !turnstileToken) return;
 
-    setStatus("loading");
+      setStatus("loading");
 
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
-          phone: form.phone.trim(),
-          source: form.source,
-          referral_code: form.referral_code.trim() || null,
-          turnstile_token: turnstileToken,
-          website: honeypot.website,
-          metadata: {
-            interest: form.metadata.interest,
-            product_type: form.metadata.product_type,
-          },
-        }),
-      });
+      try {
+        const res = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: form.name.trim(),
+            email: form.email.trim(),
+            phone: form.phone.trim(),
+            source: form.source,
+            referral_code: form.referral_code.trim() || null,
+            turnstile_token: turnstileToken,
+            website: honeypot.website,
+            metadata: {
+              interest: form.metadata.interest,
+              product_type: form.metadata.product_type,
+            },
+          }),
+        });
 
-      const data = await res.json().catch(() => ({}));
+        const data = await res.json().catch(() => ({}));
 
-      console.log(data);
-      console.log(data.message);
+        console.log(data);
+        console.log(data.message);
 
-      if (!res.ok) throw new Error(data?.message ?? "Request failed");
+        if (!res.ok) throw new Error(data?.message ?? "Request failed");
 
-      setStatus("success");
-      setSuccessMessage(data.message || "You have been added to the waitlist!");
-      toast("success", data.message);
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
-      toast("error", "Submission failed", message);
-      setStatus("idle");
-    }
-  }, [form, honeypot, turnstileToken, toast]);
+        setStatus("success");
+        setSuccessMessage(
+          data.message || "You have been added to the waitlist!",
+        );
+        toast("success", data.message);
+      } catch (err) {
+        const message =
+          err instanceof Error
+            ? err.message
+            : "Something went wrong. Please try again.";
+        toast("error", "Submission failed", message);
+        setStatus("idle");
+      }
+    },
+    [form, honeypot, turnstileToken, toast],
+  );
 
   if (status === "success") {
     return (
@@ -314,24 +371,44 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
         <style>{WL_STYLES}</style>
         <div className="wl-header">
           {isModal && onClose && (
-            <button className="wl-close-x" onClick={onClose} aria-label="Close">✕</button>
+            <button className="wl-close-x" onClick={onClose} aria-label="Close">
+              ✕
+            </button>
           )}
-          <div className="wl-badge"><span className="wl-badge-dot" /> Now Accepting Signups</div>
-          <h2 className="wl-header-title">Join the <span>Waitlist</span></h2>
+          <div className="wl-badge">
+            <span className="wl-badge-dot" /> Now Accepting Signups
+          </div>
+          <h2 className="wl-header-title">
+            Join the <span>Waitlist</span>
+          </h2>
         </div>
         <div className="wl-body">
           <div className="wl-success-wrap">
             <div className="wl-success-ring">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M5 14l6 6L23 8" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M5 14l6 6L23 8"
+                  stroke="#16a34a"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
             <h3 className="wl-success-title">You&apos;re on the list!</h3>
             <p className="wl-success-sub">
-              {successMessage} We&apos;ll reach out to <strong>{form.email}</strong>. <br/> Please confirm your email to secure your spot and stay updated on our launch.
+              {successMessage} We&apos;ll reach out to{" "}
+              <strong>{form.email}</strong>. <br /> Please confirm your email to
+              secure your spot and stay updated on our launch.
             </p>
             {onClose && (
-              <button onClick={onClose} className="wl-submit" style={{ marginTop: 8 }}>Close</button>
+              <button
+                onClick={onClose}
+                className="wl-submit"
+                style={{ marginTop: 8 }}
+              >
+                Close
+              </button>
             )}
           </div>
         </div>
@@ -346,7 +423,9 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
       <div className="wl-root">
         <div className="wl-header">
           {isModal && onClose && (
-            <button className="wl-close-x" onClick={onClose} aria-label="Close">✕</button>
+            <button className="wl-close-x" onClick={onClose} aria-label="Close">
+              ✕
+            </button>
           )}
           <div className="wl-badge">
             <span className="wl-badge-dot" />
@@ -356,17 +435,16 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
             Join the <span>Waitlist</span>
           </h2>
           <p className="wl-header-sub">
-            Be among the first to access our platform. Drop your details and we&apos;ll reach out when you&apos;re up.
+            Be among the first to access our platform. Drop your details and
+            we&apos;ll reach out when you&apos;re up.
           </p>
         </div>
 
         <div className="wl-body">
           <form onSubmit={handleSubmit} noValidate>
-
             <div className="wl-hp" aria-hidden="true">
               <input
                 type="text"
-                name="website"
                 tabIndex={-1}
                 autoComplete="off"
                 value={honeypot.website}
@@ -468,11 +546,17 @@ export default function WaitlistForm({ onClose, isModal = false }: WaitlistFormP
                 onExpire={handleTurnstileExpire}
               />
               {captchaError && (
-                <p className="wl-captcha-err">Please complete the verification above.</p>
+                <p className="wl-captcha-err">
+                  Please complete the verification above.
+                </p>
               )}
             </div>
 
-            <button type="submit" className="wl-submit" disabled={status === "loading"}>
+            <button
+              type="submit"
+              className="wl-submit"
+              disabled={status === "loading"}
+            >
               {status === "loading" ? (
                 <>
                   <span className="wl-spinner" />
