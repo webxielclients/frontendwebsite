@@ -128,7 +128,7 @@ export default function Footer() {
             
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex flex-col items-start justify-between gap-5">
             <span className="text-[12px] text-white/30">© 2026 ChangPay. All rights reserved.</span>
             <div className="flex gap-2">
               <SocialBtn label="Twitter / X" href="https://x.com/changpayafrica">
