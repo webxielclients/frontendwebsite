@@ -375,6 +375,9 @@ export default function ChangPayHomepage() {
                 
                 <Reveal delay={80}>
                   <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
+                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f97316] text-white text-[10px] font-bold tracking-[.8px] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
+                      Most Popular
+                    </span>
                     <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
                       <IUsers filled />
                     </div>
@@ -435,9 +438,6 @@ export default function ChangPayHomepage() {
 
                 <Reveal delay={0}>
                   <div className="bg-white rounded-2xl p-7 relative hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f97316] text-white text-[10px] font-bold tracking-[.8px] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
-                      Most Popular
-                    </span>
                     <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
                       <IBolt filled />
                     </div>
