@@ -372,46 +372,7 @@ export default function ChangPayHomepage() {
               </Reveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-                <Reveal delay={0}>
-                  <div className="bg-white rounded-2xl p-7 relative hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f97316] text-white text-[10px] font-bold tracking-[.8px] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
-                      Most Popular
-                    </span>
-                    <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
-                      <IBolt filled />
-                    </div>
-                    <p className="text-[17px] font-bold text-[#0d2218] mb-2.5">
-                      Crypto to Cash
-                    </p>
-                    <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
-                      Convert crypto like Bitcoin, ETH, SOL and USDT into NGN,
-                      USD, or Yuan in real-time. Fast settlement, transparent
-                      rates, with blockchain confirmations monitored live.
-                    </p>
-                    <a
-                      href="/crypto-to-cash"
-                      className="text-[13px] font-semibold text-[#16a34a] flex items-center gap-1.5 no-underline group"
-                    >
-                      Learn more
-                      <svg
-                        className="group-hover:translate-x-1 transition-transform"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M3 8h10M9 4l4 4-4 4"
-                          stroke="#16a34a"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </Reveal>
-
+                
                 <Reveal delay={80}>
                   <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
                     <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
@@ -461,7 +422,7 @@ export default function ChangPayHomepage() {
                       </span>
                     </p>
                     <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
-                      Operate your NGN, USD, EURO, GBP, or YUAN wallets, send
+                      Operate your NGN, USD, EURO, or GBP wallets, send
                       and receive money, and easily convert between them.
                       Real-time balances, internal transfers, and full
                       transaction records.
@@ -469,6 +430,46 @@ export default function ChangPayHomepage() {
                     <span className="text-[13px] font-semibold text-gray-300 flex items-center gap-1.5 cursor-default">
                       Available soon
                     </span>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={0}>
+                  <div className="bg-white rounded-2xl p-7 relative hover:-translate-y-1 hover:shadow-2xl transition-all h-full flex flex-col">
+                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#f97316] text-white text-[10px] font-bold tracking-[.8px] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
+                      Most Popular
+                    </span>
+                    <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-[#1a7a4a] to-[#16a34a] flex items-center justify-center mb-5">
+                      <IBolt filled />
+                    </div>
+                    <p className="text-[17px] font-bold text-[#0d2218] mb-2.5">
+                      Crypto to Cash
+                    </p>
+                    <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
+                      Convert crypto like Bitcoin, ETH, SOL and USDT into NGN,
+                      USD, EUR, or GBP in real-time. Fast settlement, transparent
+                      rates, with blockchain confirmations monitored live.
+                    </p>
+                    <a
+                      href="/crypto-to-cash"
+                      className="text-[13px] font-semibold text-[#16a34a] flex items-center gap-1.5 no-underline group"
+                    >
+                      Learn more
+                      <svg
+                        className="group-hover:translate-x-1 transition-transform"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="#16a34a"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
                   </div>
                 </Reveal>
               </div>
@@ -534,8 +535,8 @@ export default function ChangPayHomepage() {
                 {[
                   {
                     icon: <IBolt filled />,
-                    title: "Instant Conversion",
-                    desc: "Quickly convert crypto and other digital assets into local currency with real-time rates and fast settlement.",
+                    title: "24/7 Exceptional Support",
+                    desc: "Our dedicated support team is always available to guide you through any step of your financial journey.",
                   },
                   {
                     icon: <IShield filled />,
