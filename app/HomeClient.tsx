@@ -576,7 +576,7 @@ export default function ChangPayHomepage() {
                   </p>
                   {[
                     {
-                      label: "BTC → NGN",
+                      label: "USDC → NGN",
                       sub: "Crypto conversion",
                       amount: "+₦420,000",
                     },
