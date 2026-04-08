@@ -572,7 +572,7 @@ export default function ChangPayHomepage() {
               <Reveal dir="left">
                 <div className="bg-[#0d2218] rounded-[20px] p-8">
                   <p className="text-[11px] font-bold text-[#4ade80] tracking-[.6px] uppercase mb-5">
-                    Recent Transactions
+                    Wallet Overview
                   </p>
                   {[
                     {
@@ -586,7 +586,7 @@ export default function ChangPayHomepage() {
                       amount: "¥3,200",
                     },
                     {
-                      label: "USDT → USD",
+                      label: "NGN → USD",
                       sub: "Wallet settlement",
                       amount: "+$850",
                     },
@@ -644,7 +644,7 @@ export default function ChangPayHomepage() {
                     },
                     {
                       title: "Seamless Transactions",
-                      desc: "Easily convert cryptocurrencies and manage multiple wallets (NGN, USD, Yuan) with no hassle.",
+                      desc: "Easily convert cryptocurrencies and manage multiple wallets (NGN, USD, EUR, GBP) with no hassle.",
                     },
                     {
                       title: "24/7 Exceptional Support",
