@@ -365,7 +365,7 @@ export default function ChangPayHomepage() {
                 </h2>
                 <p className="text-[15px] text-center text-slate-400 leading-relaxed mb-12">
                   We offer secure and seamless services for converting
-                  cryptocurrency, paying Chinese merchants, and managing
+                  stablecoins to local fiat currencies, paying Chinese merchants, and managing
                   multi-currency wallets; enabling instant global transactions
                   with ease.
                 </p>
@@ -445,7 +445,7 @@ export default function ChangPayHomepage() {
                       Crypto to Cash
                     </p>
                     <p className="text-[13.5px] text-gray-500 leading-[1.7] mb-5 flex-1">
-                      Convert crypto like Bitcoin, ETH, SOL and USDT into NGN,
+                      Convert stablecoins like USDC, USDT into NGN,
                       USD, EUR, or GBP in real-time. Fast settlement, transparent
                       rates, with blockchain confirmations monitored live.
                     </p>
@@ -499,7 +499,7 @@ export default function ChangPayHomepage() {
                 </h2>
                 <p className="text-[15px] text-slate-400 leading-relaxed max-w-[480px] mx-auto mb-8">
                   Convert, send, and receive money securely and instantly
-                  whether it's crypto, or payments to international merchants.
+                  whether it's USD, EURO and stablecoins, or payments to international merchants.
                 </p>
                 <div className="relative inline-block">
                   <button className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
@@ -577,7 +577,7 @@ export default function ChangPayHomepage() {
                   {[
                     {
                       label: "USDC → NGN",
-                      sub: "Crypto conversion",
+                      sub: "Conversion to fiat.",
                       amount: "+₦420,000",
                     },
                     {
@@ -644,7 +644,7 @@ export default function ChangPayHomepage() {
                     },
                     {
                       title: "Seamless Transactions",
-                      desc: "Easily convert cryptocurrencies and manage multiple wallets (NGN, USD, EUR, GBP) with no hassle.",
+                      desc: "Easily convert stablecoins and manage multiple wallets (NGN, USD, EUR, GBP) with no hassle.",
                     },
                     {
                       title: "24/7 Exceptional Support",
