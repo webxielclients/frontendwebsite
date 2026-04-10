@@ -250,7 +250,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal dir="right" delay={80}>
               <div className="relative h-72 rounded-xl overflow-hidden">
-                <Image src="/aboutdig.png" alt="Convert Crypto to Cash screen" fill className="object-contain" />
+                <Image src="/Image4.png" alt="Convert Crypto to Cash screen" fill className="object-contain rounded-xl" />
               </div>
             </Reveal>
           </div>

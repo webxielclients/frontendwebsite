@@ -230,11 +230,11 @@ export default function ChangPayHomepage() {
                   style={anim(150)}
                 >
                   <Image
-                    src="/iPhoneNew.png"
+                    src="/WomanHome.png"
                     alt="ChangPay app"
                     width={920}
-                    height={1100}
-                    className="w-full h-auto block phone-float"
+                    height={400}
+                    className="w-full h-[550px] rounded-lg block phone-float"
                     priority
                   />
                 </div>
@@ -300,10 +300,10 @@ export default function ChangPayHomepage() {
                 >
                   <div className=" rounded-xl overflow-hidden p-3 w-full md:w-[clamp(260px,34vw,380px)]">
                     <Image
-                      src="/changpay_brain.png"
+                      src="/Image1.png"
                       alt="Globe"
                       width={760}
-                      height={620}
+                      height={720}
                       className="w-full h-auto block rounded-xl"
                     />
                   </div>
