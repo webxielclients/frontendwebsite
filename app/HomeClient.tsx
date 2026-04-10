@@ -174,7 +174,7 @@ export default function ChangPayHomepage() {
                     style={anim(140)}
                   >
                     <Image
-                      src="/iPhoneNew.png"
+                      src="/WomanHome.png"
                       alt="ChangPay app"
                       width={920}
                       height={1100}
