@@ -174,7 +174,7 @@ export default function ChangPayHomepage() {
                     style={anim(140)}
                   >
                     <Image
-                      src="/WomanHome.png"
+                      src="/hero-section.png"
                       alt="ChangPay app"
                       width={920}
                       height={1100}
@@ -230,13 +230,13 @@ export default function ChangPayHomepage() {
                   style={anim(150)}
                 >
                   <Image
-                    src="/WomanHome.png"
-                    alt="ChangPay app"
-                    width={920}
-                    height={400}
-                    className="w-full h-[550px] rounded-lg block phone-float"
-                    priority
-                  />
+    src="/hero-section.png"
+    alt="ChangPay app"
+    width={920}
+    height={1100}
+    className="w-full h-auto max-h-[580px] object-contain rounded-lg block phone-float"
+    priority
+  />
                 </div>
               </div>
             </div>
