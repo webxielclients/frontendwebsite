@@ -128,7 +128,7 @@ export default function AboutPage() {
                 Our Vision
               </p>
               <h2 className="text-[15px] md:text-[16px] font-bold leading-[1.7] text-gray-900 mb-5">
-               To become the go-to platform for seamless crypto-to-cash transactions, and global payments shaping the future of finance in emerging markets.
+               To become the go-to platform for seamless stable coins transactions, and global payments shaping the future of finance in emerging markets.
               </h2>
               {/* <p className="text-[13.5px] text-gray-500 leading-relaxed">
                 Trust and accessibility guide every decision we make from how our
@@ -166,12 +166,12 @@ export default function AboutPage() {
                <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
                 {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
                 <CircleCheckIcon/>
-                Instant Conversion: Fast crypto, and asset exchanges
+                Instant Conversion: Fast stable coins, and asset exchanges
               </p>
                <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
                 {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
                 <CircleCheckIcon/>
-                Multi-Currency Wallets (Coming Soon): Manage NGN, USD, and Yuan.
+                Multi-Currency Wallets (Coming Soon): Manage NGN, USD, GBP and EUR.
               </p>
                <p className="flex items-center gap-2 text-gray-500 text-sm mb-2">
                 {/* <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1a7a4a] flex-shrink-0"/> */}
@@ -244,13 +244,13 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-[17px] font-bold text-gray-900">Digital value conversion</h3>
                 <p className="text-[24px] text-[#737373] leading-relaxed">
-                  Helping users turn crypto into usable cash.
+                  Helping users turn stable coins into usable cash.
                 </p>
               </div>
             </Reveal>
             <Reveal dir="right" delay={80}>
               <div className="relative h-72 rounded-xl overflow-hidden">
-                <Image src="/Image4.png" alt="Convert Crypto to Cash screen" fill className="object-contain rounded-xl" />
+                <Image src="/chanpayImage.jpg" alt="Convert Crypto to Cash screen" fill className="object-contain rounded-xl" />
               </div>
             </Reveal>
           </div>

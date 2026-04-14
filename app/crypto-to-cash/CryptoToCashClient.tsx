@@ -116,10 +116,10 @@ export default function CryptoToCashPage() {
                 }}
               >
                 <h1 className="text-[36px] md:text-[52px] font-extrabold text-[#4ade80] leading-[1.1] mb-6">
-                  Fast, Secure<br />Crypto <h1 className='text-[#F2C04C]'>to Cash</h1>
+                  Fast, Secure<br />Stable Coins <h1 className='text-[#F2C04C]'>to Cash</h1>
                 </h1>
                 <p className="text-[14px] text-gray-300 leading-relaxed max-w-sm">
-                  Convert your cryptocurrency with ease. We help individuals and
+                  Convert your stable coins with ease. We help individuals and
                   businesses turn digital assets into cash quickly, securely, and
                   reliably without the stress of delays, unclear rates, or
                   complicated conversion processes.
@@ -256,7 +256,7 @@ export default function CryptoToCashPage() {
                 className="hero-heading font-extrabold text-[#16a34a]"
                 style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}
               >
-                Convert Crypto to Cash
+                Convert Stable Coins to Cash
               </h2>
             </Reveal>
             <Reveal delay={80} className="mb-10">
@@ -269,7 +269,7 @@ export default function CryptoToCashPage() {
               >
                 <strong>ChangPay enables users to convert</strong>{" "}
                 <span className="text-gray-400 font-normal">
-                  supported cryptocurrencies into local or foreign currency
+                  supported stable coins into local or foreign currency
                   balances, with fast settlement and clear pricing.
                 </span>
               </p>
