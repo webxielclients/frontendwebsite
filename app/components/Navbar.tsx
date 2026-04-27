@@ -87,7 +87,7 @@ export default function Navbar() {
             className="flex items-center no-underline flex-shrink-0"
           >
             <Image
-              src="/Group.png"
+              src="/Group1.png"
               alt="ChangPay"
               width={120}
               height={45}
