@@ -133,11 +133,7 @@ export default function Footer() {
 
           <div className="flex flex-col items-start justify-between gap-5">
             <span className="text-[12px] text-white/30">© 2026 ChangPay. All rights reserved.</span>
-            <span className="text-[12px] text-white/30">Chang Global Technologies LLC is incorporated in Delaware, United States, with business  address at 8 The Green, Suite B, Dover, DE 19901, USA, and registered as a Money Services Business (MSB) with FinCEN under BSA ID: 31000329787645</span>
-
-            <span className="text-[12px] text-white/30">Chang Global Technologies Pty Ltd is a registered proprietary company in Australia under the Corporations Act 2001, incorporated in South Australia with Australian Company Number (ACN) 694 866 398.</span>
             
-            <span className="text-[12px] text-white/30">Chang Global Ventures Ltd is a private company limited by shares, incorporated in Nigeria under the Companies and Allied Matters Act 2020 with Company Registration No. 8994084</span>
             <div className="flex gap-2">
               <SocialBtn label="Twitter / X" href="https://x.com/changpayafrica">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -153,6 +149,11 @@ export default function Footer() {
               </SocialBtn>
             </div>
           </div>
+          <span className="text-[12px] text-white/30">Chang Global Technologies LLC is incorporated in Delaware, United States, with business  address at 8 The Green, Suite B, Dover, DE 19901, USA, and registered as a Money Services Business (MSB) with FinCEN under BSA ID: 31000329787645</span>
+
+            <span className="text-[12px] text-white/30">Chang Global Technologies Pty Ltd is a registered proprietary company in Australia under the Corporations Act 2001, incorporated in South Australia with Australian Company Number (ACN) 694 866 398.</span>
+            
+            <span className="text-[12px] text-white/30">Chang Global Ventures Ltd is a private company limited by shares, incorporated in Nigeria under the Companies and Allied Matters Act 2020 with Company Registration No. 8994084</span>
         </div>
       </div>
       </div>
