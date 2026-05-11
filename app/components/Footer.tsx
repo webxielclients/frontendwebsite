@@ -60,11 +60,11 @@ export default function Footer() {
              <p className="text-[11px] font-bold text-white/45 tracking-[.6px] max-w-[300px] w-full uppercase mb-4">ChangPay provides fast, reliable payment infrastructure designed for seamless transactions and high availability</p>
             <div className="flex flex-col gap-3">
               {[
-                {
+                /* {
                   icon: <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>,
                   circle: <circle cx="12" cy="10" r="3"/>,
                   text: "Lagos, Nigeria",
-                },
+                }, */
                 {
                   icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>,
                   text: "support@usechangpay.com",
