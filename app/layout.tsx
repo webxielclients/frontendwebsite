@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+234-704-276-4245",
+                telephone: "+1302 279 4741",
                 contactType: "customer service",
                 areaServed: ["US", "NG", "CN"],
                 availableLanguage: "English",
