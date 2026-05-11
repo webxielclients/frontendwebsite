@@ -153,12 +153,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-          <span className="text-[12px] text-white/30">Chang Global Technologies LLC is incorporated in Delaware, United States, with business  address at 8 The Green, Suite B, Dover, DE 19901, USA, and registered as a Money Services Business (MSB) with FinCEN under BSA ID: 31000329787645</span>
+      </div>
+        <span className="text-[12px] text-white/30">Chang Global Technologies LLC is incorporated in Delaware, United States, with business  address at 8 The Green, Suite B, Dover, DE 19901, USA, and registered as a Money Services Business (MSB) with FinCEN under BSA ID: 31000329787645</span>
 
             <span className="text-[12px] text-white/30">Chang Global Technologies Pty Ltd is a registered proprietary company in Australia under the Corporations Act 2001, incorporated in South Australia with Australian Company Number (ACN) 694 866 398.</span>
             
             <span className="text-[12px] text-white/30">Chang Global Ventures Ltd is a private company limited by shares, incorporated in Nigeria under the Companies and Allied Matters Act 2020 with Company Registration No. 8994084</span>
-      </div>
       </div>
     </footer>
   );
