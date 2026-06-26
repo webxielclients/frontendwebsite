@@ -76,6 +76,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
+
+        <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zoho.com/widget?wc=siq9562bd5f30008073783a9850564487d10cd213e6c8e61dd7c5eeb171a8ec9985" defer></script>
         <Footer />
       </body>
     </html>
