@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import Script from "next/script";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -76,8 +77,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
-
-        <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zoho.com/widget?wc=siq9562bd5f30008073783a9850564487d10cd213e6c8e61dd7c5eeb171a8ec9985" defer></script>
+        <Script id="zoho-salesiq-init" strategy="afterInteractive">
+            {`
+              window.$zoho = window.$zoho || {};
+              window.$zoho.salesiq = window.$zoho.salesiq || {
+                ready: function () {}
+              };
+            `}
+          </Script>
+        
+          <Script
+            id="zsiqscript"
+            src="https://salesiq.zoho.com/widget?wc=siq9562bd5f30008073783a9850564487d10cd213e6c8e61dd7c5eeb171a8ec9985"
+            strategy="afterInteractive"
+          />
+        
         <Footer />
       </body>
     </html>
