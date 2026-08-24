@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { APP_LINKS } from "@/config/links";
 import { ApplePayFooter,GooglePlayFooter, LinkedInIcon } from "@/public/icons";
 
 function SocialBtn({ label, href, children }: { label: string; href: string; children: React.ReactNode }) {
@@ -17,31 +18,54 @@ function SocialBtn({ label, href, children }: { label: string; href: string; chi
 
 function StoreBtn({ store }: { store: "google" | "apple" }) {
   const isGoogle = store === "google";
+
+  const storeUrl = isGoogle
+    ? APP_LINKS.googlePlay
+    : APP_LINKS.appStore;
+
   return (
-    <div className="relative">
-      <div className="flex items-center gap-2.5 bg-[#132e20] border border-[#4ade80]/15 hover:border-[#4ade80]/40 rounded-[10px] px-4 py-2.5 transition-colors cursor-pointer min-w-[180px]">
-        {isGoogle ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M3.18 1.03C2.47 1.43 2 2.17 2 3.03v17.94c0 .86.47 1.6 1.18 2l10.36-10.97L3.18 1.03z" fill="#EA4335"/>
-            <path d="M20.3 10.27l-2.8-1.57-3.17 3.3 3.17 3.3 2.83-1.59c.81-.45.81-1.99-.03-2.44z" fill="#FBBC04"/>
-            <path d="M3.18 22.97c.2.12.43.18.67.18.38 0 .75-.11 1.07-.3l12.3-6.9-3.17-3.3-10.87 10.32z" fill="#34A853"/>
-            <path d="M3.18 1.03L14.05 11.97l-3.17-3.3L4.92 1.31A2.06 2.06 0 003.18 1.03z" fill="#4285F4"/>
-          </svg>
-        ) : (
-          <svg width="17" height="20" viewBox="0 0 17 22" fill="white">
-            <path d="M14.93 11.5c-.02-2.48 2.03-3.67 2.12-3.73-1.16-1.69-2.95-1.92-3.59-1.95-1.53-.16-2.98.9-3.76.9-.78 0-1.99-.88-3.27-.85-1.68.02-3.23.98-4.1 2.48-1.74 3.02-.45 7.51 1.25 9.97.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.43 1-1.4 1.4-2.74 1.42-2.81-.03-.01-2.72-1.04-2.74-4.07z"/>
-            <path d="M12.38 4.06c.69-.84 1.16-2 1.03-3.16-1 .04-2.2.67-2.91 1.49-.64.73-1.2 1.9-1.05 3.02 1.11.09 2.24-.57 2.93-1.35z"/>
-          </svg>
-        )}
-        <div className="flex flex-col leading-tight">
-          <span className="text-[9px] text-white/40">{isGoogle ? "GET IT ON" : "Download on the"}</span>
-          <span className="text-[13px] font-bold text-white">{isGoogle ? "Google Play" : "App Store"}</span>
-        </div>
+    <a
+      href={storeUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2.5 bg-[#132e20] border border-[#4ade80]/15 hover:border-[#4ade80]/40 rounded-[10px] px-4 py-2.5 transition-colors cursor-pointer min-w-[180px]"
+    >
+      {isGoogle ? (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M3.18 1.03C2.47 1.43 2 2.17 2 3.03v17.94c0 .86.47 1.6 1.18 2l10.36-10.97L3.18 1.03z"
+            fill="#EA4335"
+          />
+          <path
+            d="M20.3 10.27l-2.8-1.57-3.17 3.3 3.17 3.3 2.83-1.59c.81-.45.81-1.99-.03-2.44z"
+            fill="#FBBC04"
+          />
+          <path
+            d="M3.18 22.97c.2.12.43.18.67.18.38 0 .75-.11 1.07-.3l12.3-6.9-3.17-3.3-10.87 10.32z"
+            fill="#34A853"
+          />
+          <path
+            d="M3.18 1.03L14.05 11.97l-3.17-3.3L4.92 1.31A2.06 2.06 0 003.18 1.03z"
+            fill="#4285F4"
+          />
+        </svg>
+      ) : (
+        <svg width="17" height="20" viewBox="0 0 17 22" fill="white">
+          <path d="M14.93 11.5c-.02-2.48 2.03-3.67 2.12-3.73-1.16-1.69-2.95-1.92-3.59-1.95-1.53-.16-2.98.9-3.76.9-.78 0-1.99-.88-3.27-.85-1.68.02-3.23.98-4.1 2.48-1.74 3.02-.45 7.51 1.25 9.97.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.73-.81 3.24-.81 1.51 0 1.94.81 3.27.79 1.35-.02 2.2-1.22 3.02-2.43 1-1.4 1.4-2.74 1.42-2.81-.03-.01-2.72-1.04-2.74-4.07z" />
+          <path d="M12.38 4.06c.69-.84 1.16-2 1.03-3.16-1 .04-2.2.67-2.91 1.49-.64.73-1.2 1.9-1.05 3.02 1.11.09 2.24-.57 2.93-1.35z" />
+        </svg>
+      )}
+
+      <div className="flex flex-col leading-tight">
+        <span className="text-[9px] text-white/40">
+          {isGoogle ? "GET IT ON" : "Download on the"}
+        </span>
+
+        <span className="text-[13px] font-bold text-white">
+          {isGoogle ? "Google Play" : "App Store"}
+        </span>
       </div>
-      <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
-        Coming Soon
-      </span>
-    </div>
+    </a>
   );
 }
 
