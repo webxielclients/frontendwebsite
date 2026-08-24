@@ -117,12 +117,12 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button
+            /*<button
               onClick={openWaitlistModal}
               className="hidden md:inline-flex w-[246px] items-center justify-center bg-[#16a34a] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-green-500/20 no-underline"
             >
               Join waitlist
-            </button>
+            </button>*/
 
             <button
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer gap-[5px]"
