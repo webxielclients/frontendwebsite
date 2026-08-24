@@ -1,4 +1,4 @@
-export const LINKS = {
+export const APP_LINKS = {
   app: {
     googlePlay:
       "https://play.google.com/store/apps/details?id=com.changpay.android",
