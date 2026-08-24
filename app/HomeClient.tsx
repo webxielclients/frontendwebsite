@@ -227,12 +227,12 @@ export default function ChangPayHomepage() {
                             <ApplePay />
                         </a>
                         </div>
-                      <button
+                      {/*<button
                         onClick={openWaitlistModal}
                         className="bg-[#16a34a] w-[246px] md:w-[246px] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px"
                       >
                         Join waitlist
-                      </button>
+                      </button>*/}
                     </div>
                   </div>
                 </div>
