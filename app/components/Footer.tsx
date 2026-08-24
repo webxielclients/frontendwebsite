@@ -132,19 +132,32 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3">
+            {/* Google Play */}
             <div className="relative self-start">
-            <GooglePlayFooter />
-             <span className="absolute -top-2 -right-2 bg-[#ffffff] text-gray-500 text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
-              Coming Soon
-              </span>
-              </div>
+              <a
+                href={APP_LINKS.app.googlePlay}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download ChangPay on Google Play"
+                className="block transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <GooglePlayFooter />
+              </a>
+            </div>
+          
+            {/* Apple App Store */}
             <div className="relative self-start">
-            <ApplePayFooter />
-            <span className="absolute -top-2 -right-2 bg-[#ffffff] text-gray-500 text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
-              Coming soon
-            </span>
+              <a
+                href={APP_LINKS.app.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download ChangPay on the App Store"
+                className="block transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <ApplePayFooter />
+              </a>
+            </div>
           </div>
-        </div>
 
         <div className="pt-6">
           <div className="flex items-center gap-4 mb-3">
