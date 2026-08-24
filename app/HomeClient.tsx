@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { APP_LINKS } from "@/config/links";
 import {
   IBook,
   IUsers,
@@ -204,18 +205,28 @@ export default function ChangPayHomepage() {
                       style={anim(290)}
                     >
                       <div className="relative w-full md:w-[246px]">
-                        <GooglePlay />
-                        <span className="absolute top-1.5 md:top-[-3] right-2 md:right-[-30px] bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap z-10">
-                          Coming Soon
-                        </span>
-                      </div>
+                        <a
+                            href={APP_LINKS.app.googlePlay}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Download ChangPay on Google Play"
+                            className="block w-full transition-transform duration-200 hover:-translate-y-0.5"
+                        >
+                            <GooglePlay />
+                        </a>
+                        </div>
 
-                      <div className="relative w-full md:w-[246px]">
-                        <ApplePay />
-                        <span className="absolute top-1.5 md:top-[-3] md:right-[-30px] right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap z-10">
-                          Coming Soon
-                        </span>
-                      </div>
+                        <div className="relative w-full md:w-[246px]">
+                        <a
+                            href={APP_LINKS.app.appStore}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Download ChangPay on the App Store"
+                            className="block w-full transition-transform duration-200 hover:-translate-y-0.5"
+                        >
+                            <ApplePay />
+                        </a>
+                        </div>
                       <button
                         onClick={openWaitlistModal}
                         className="bg-[#16a34a] w-[246px] md:w-[246px] hover:bg-[#15803d] text-white text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px"
@@ -502,12 +513,10 @@ export default function ChangPayHomepage() {
                   whether it's USD, EURO and stablecoins, or payments to international merchants.
                 </p>
                 <div className="relative inline-block">
-                  <button className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                  <a href={APP_LINKS.app.googlePlay} target="_blank" className="bg-[#16a34a] w-[246px] hover:bg-[#15803d] text-white text-[15px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
                     Download our App Today
-                  </button>
-                  <span className="absolute -top-2 -right-2 bg-[#0d2218] text-[#4ade80] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none border border-[#4ade80]/30">
-                    Coming Soon
-                  </span>
+                  </a>
+                  
                 </div>
               </Reveal>
             </div>
@@ -678,12 +687,10 @@ export default function ChangPayHomepage() {
                   ))}
                 </div>
                 <div className="relative inline-block">
-                  <button className="flex items-center justify-center w-[246px] gap-2 bg-[#0d2218] hover:bg-[#1b3d2a] text-[#4ade80] text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
-                    Download for Android
-                  </button>
-                  <span className="absolute -top-2 -right-2 bg-[#16a34a] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
-                    Coming Soon
-                  </span>
+                  <a href={APP_LINKS.app.appStore} target="_blank" className="flex items-center justify-center w-[246px] gap-2 bg-[#0d2218] hover:bg-[#1b3d2a] text-[#4ade80] text-[14px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px">
+                    Download for iOS
+                  </a>
+                  
                 </div>
               </Reveal>
             </div>
@@ -934,12 +941,10 @@ export default function ChangPayHomepage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center relative">
                   <div className="relative inline-block">
-                  <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] w-[246px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
+                  <a href={APP_LINKS.app.googlePlay} target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#01322F] hover:bg-[#1b3d2a] text-[#009F51] text-[15px] w-[246px] font-bold px-7 py-3.5 rounded-full border-none cursor-pointer transition-all hover:-translate-y-px hover:shadow-xl">
                     Download for Android
-                  </button>
-                   <span className="absolute -top-2 -right-2 bg-[#ffffff] text-[#16a34a] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
-                    Coming Soon
-                  </span>
+                  </a>
+                   
                   </div>
                   <button
                     onClick={() => router.push("/pay-to-china")}
