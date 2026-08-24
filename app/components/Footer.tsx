@@ -20,8 +20,8 @@ function StoreBtn({ store }: { store: "google" | "apple" }) {
   const isGoogle = store === "google";
 
   const storeUrl = isGoogle
-    ? APP_LINKS.googlePlay
-    : APP_LINKS.appStore;
+    ? APP_LINKS.app.googlePlay
+    : APP_LINKS.app.appStore;
 
   return (
     <a
