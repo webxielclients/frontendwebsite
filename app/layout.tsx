@@ -59,8 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               logo: OG_IMAGE,
               sameAs: [
                 "https://www.facebook.com/share/1Acw74WUx9",
-                "https://x.com/changpayafrica",
-                "https://www.instagram.com/changpayafrica",
+                "https://x.com/usechangpay",
+                "https://www.instagram.com/usechangpayapp",
                 "https://www.linkedin.com/company/ChangPay",
               ],
               contactPoint: {
